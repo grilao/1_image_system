@@ -24,15 +24,17 @@
         </div> 
     @endif
 
-    <h3>Upload de Imagem</h3>
+    <br clear="all">
+    <h3 style="margin-bottom: 50px;">Upload de Imagem</h3>
     <form method="post" action="{{ route('image.store') }}" enctype="multipart/form-data">
         {{csrf_field()}}
 
         <div>
-            <input type="file" multiple name="filename[]">
+            <label class="label-file" for="input-file">Selecionar um arquivo</label>
+            <input class="input-file" id="input-file" type="file" multiple name="filename[]">
         </div>
 
-        <button type="submit" style="margin-top:10px">Enviar</button>
+        <button class="input-enviar" type="submit" style="margin-top:10px">Enviar</button>
     </form>
     
 @endsection

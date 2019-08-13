@@ -24,29 +24,33 @@
         </div> 
     @endif
 
-    <h3>Edição de Template</h3>
+    <h3 style="margin-bottom: 50px;">Edição de Template</h3>
     <form method="post" action="{{ route('template.update', $template->id) }}">
         @method('PATCH')
         @csrf
 
         <div>
             <label for="nome_template">Nome:</label><br/>
-            <input type="text" id="nome_template" name="nome" value={{ $template->nome }}><br/><br/>
+            <input class="input" type="text" id="nome_template" name="nome" value={{ $template->nome }}><br/><br/>
+            <span class="span-posicao" id="span-nome">Insira o nome do template</span>
         </div>
         <div>
             <label for="descricao_template">Descrição:</label><br/>
-            <textarea id="descricao_template" name="descricao" value={{ $template->descricao }}></textarea><br/><br/>
+            <textarea class="input" id="descricao_template" name="descricao" value={{ $template->descricao }}></textarea><br/><br/>
+            <span style="top: -60px;" class="span-posicao" id="span-descricao">Insira uma breve descrição do template</span>
         </div>
         <div>
             <label for="altura_template">Altura:</label><br/>
-            <input type="text" id="altura_template" name="altura" value={{ $template->altura }}><br/><br/>
+            <input class="input" type="number" id="altura_template" name="altura" value={{ $template->altura }}><br/><br/>
+            <span class="span-posicao" id="span-altura">Insira as alturas das imagens em pixels</span>
         </div>
         <div>
             <label for="largura_template">Largura:</label><br/>
-            <input type="text" id="largura_template" name="largura" value={{ $template->largura }}><br/><br/>
+            <input class="input" type="number" id="largura_template" name="largura" value={{ $template->largura }}><br/><br/>
+            <span class="span-posicao" id="span-largura">Insira as larguras das imagens em pixels</span>
         </div>
 
-        <button type="submit" style="margin-top:10px">Update</button>
+        <button class="input-enviar" type="submit" style="margin-top:10px">Update</button>
     </form>
     
 @endsection

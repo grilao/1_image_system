@@ -138,7 +138,7 @@ body{
 
 .container{
     width: 80%;
-    min-height: 720px;
+    min-height: 80%;
 	position: relative;
 	margin-left: auto;
 	top: 5%;
@@ -147,12 +147,12 @@ body{
 	margin-right: auto;
 	background-color: white;
 	box-shadow: 3px 8px 8px rgb(196, 196, 196);
-	padding: 15px;
+    padding: 15px;
+    padding-left: 50px;
 	margin-bottom: 30px;
 }
 
-
-/* ------------------> Página de edição <------------------ */
+/* ------------------> Página de edição de imagem <------------------ */
 
 .edicao{
     width: 48%;
@@ -181,7 +181,7 @@ body{
 
 /* img */
 
-.edicao_div{
+.edicao-div{
     width: 48%;
     height: 200px;
     position: relative;
@@ -191,7 +191,7 @@ body{
     padding: 10px;
 }
 
-.edicao_div_img{
+.edicao-div-img{
     max-width: 100%;
     max-height: 200px;
     display: block;
@@ -203,7 +203,7 @@ body{
 
 /* Brilho, contraste e saturação */
 
-.edicao_div_edicao{
+.edicao-div-edicao{
     width: 38%;
     height: 185px;
     position: relative;
@@ -214,16 +214,16 @@ body{
 	padding-top: 25px;
 }
 
-.edicao_div_edicao_label{
+.edicao-div-edicao-label{
 	margin-right: 65px;
 }
 
-.edicao_div_edicao_inputs{
+.edicao-div-edicao-inputs{
 	width: 70%;
     margin-bottom: 15px;
 }
 
-.edicao_div_temp{
+.edicao-div-temp{
 	width: 75%;
 	height: 25px;
 	margin-left: auto;
@@ -233,12 +233,55 @@ body{
 	margin-top: 255px;
 }
 
-.edicao_div_edicao_span{
+.edicao-div-edicao-span{
 	margin-left: 1%;
 	position: relative;
 	top: -7px;
 }
 
-.edicao_div_edicao_input_number{
+.edicao-div-edicao-input-number{
 	display: none;
 }
+
+/* ------------------> inputs e buttons <------------------ */
+
+.input{
+    padding: 8px;
+    margin-top: 5px;
+    padding-left: 20px;
+    border-radius: 15px;
+    border: solid 2px rgb(196, 196, 196);
+    outline: 0;
+    width: 40%;
+}
+
+.input:focus{
+    border-color: rgb(152, 224, 167);
+    transition: border-color 0.3s;
+}
+
+.input-enviar{
+    padding: 10px 40px 10px 40px;
+    border-radius: 15px;
+    border: solid 2px rgb(53, 145, 114);
+    outline: 0;
+    background-color: rgb(66, 211, 98);
+    position: relative;
+    left: 55px;
+    font-size: 13pt;
+}
+
+.input-enviar:active{
+    border: solid 1px rgb(53, 145, 114);;
+    transition: border 0.1s;
+}
+
+/* span-inputs */
+
+.span-posicao{
+    position: relative;
+    top: -47px;
+    left: 44%;
+}
+
+/* input-file */

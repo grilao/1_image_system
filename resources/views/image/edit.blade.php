@@ -34,30 +34,30 @@
         ?>
             <div class="edicao">
                 <?php
-                    echo "<p class='edicao_p'>$image_certa</p>";
+                    echo "<p class='edicao-p'>$image_certa</p>";
                 ?> 
-                <div class="edicao_div">
-                    <img id="img" src="{{ asset('images/'. $image_certa .'') }}" name="img" class="edicao_div_img" title="{{$image_certa}}"/>
+                <div class="edicao-div">
+                    <img id="img" src="{{ asset('images/'. $image_certa .'') }}" name="img" class="edicao-div-img" title="{{$image_certa}}"/>
                 </div>
 
-                <div class="edicao_div_edicao">
-                    <label class="edicao_div_edicao_label" for="brilho">Brilho:</label>
-                    <input type="range" class="edicao_div_edicao_inputs" id="brilho" value="100" min="0" max="200" name="brilho">
-                    <input type="number" class="edicao_div_edicao_input_number" id="brilho_number" value="0">
-                    <span class="edicao_div_edicao_span" id="valor_brilho"></span>
+                <div class="edicao-div-edicao">
+                    <label class="edicao-div-edicao-label" for="brilho">Brilho:</label>
+                    <input type="range" class="edicao-div-edicao-inputs" id="brilho" value="100" min="0" max="200" name="brilho">
+                    <input type="number" class="edicao-div-edicao-input-number" id="brilho_number" value="0">
+                    <span class="edicao-div-edicao-span" id="valor_brilho"></span>
                     
-                    <label class="edicao_div_edicao_label" for="contraste">Contraste:</label>
-                    <input type="range" class="edicao_div_edicao_inputs" id="contraste" min="0" max="200" name="contraste">
-                    <input type="number"  class="edicao_div_edicao_input_number" id="contraste_number" value="0">
-                    <span class="edicao_div_edicao_span" id="valor_contraste"></span>
+                    <label class="edicao-div-edicao-label" for="contraste">Contraste:</label>
+                    <input type="range" class="edicao-div-edicao-inputs" id="contraste" min="0" max="200" name="contraste">
+                    <input type="number"  class="edicao-div-edicao-input-number" id="contraste_number" value="0">
+                    <span class="edicao-div-edicao-span" id="valor_contraste"></span>
 
-                    <label class="edicao_div_edicao_label" for="saturacao">Saturação:</label>
-                    <input type="range" class="edicao_div_edicao_inputs" id="saturacao" min="0" max="200" name="saturacao">
-                    <input type="number"  class="edicao_div_edicao_input_number" id="saturacao_number" value="0">
-                    <span class="edicao_div_edicao_span" id="valor_saturacao"></span>
+                    <label class="edicao-div-edicao-label" for="saturacao">Saturação:</label>
+                    <input type="range" class="edicao-div-edicao-inputs" id="saturacao" min="0" max="200" name="saturacao">
+                    <input type="number"  class="edicao-div-edicao-input-number" id="saturacao_number" value="0">
+                    <span class="edicao-div-edicao-span" id="valor_saturacao"></span>
                 </div>
 
-                <div class="edicao_div_temp">
+                <div class="edicao-div-temp">
                     <label for="template">Template:</label>
                     <select name="template">
                         <option>Template 1</option>
