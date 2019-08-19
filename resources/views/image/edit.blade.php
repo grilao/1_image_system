@@ -8,20 +8,18 @@
 
 @section ('content')
        
-    @if (count($errors) > 0)
-        <div>
-            <strong>Whoops!</strong> There were some problems with your input.<br><br>
-            <ul>
+@if (count($errors) > 0)
+        <div class="form-erro">
+            <strong>Não foi possível realizar a edição!</strong><br><br>Erros:<br>
+            <ul style="list-style: none;">
                 @foreach ($errors->all() as $error)
                     <li>{{ $error }}</li>
                 @endforeach
             </ul>
         </div>
     @endif
-    @if(session('success'))
-        <div>
-            {{ session('success') }}
-        </div> 
+    @if(session('sucesso'))
+        <p>{{ session('sucesso') }}<p>
     @endif
 
     <h3>Edição de Imagem</h3>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Template;
+use App\Http\Requests\Template\StoreFormRequest;
 
 class TemplateController extends Controller
 {
@@ -41,13 +42,8 @@ class TemplateController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreFormRequest $request)
     {
-      $request->validate([
-        'nome'=>'required',
-        'altura'=> 'required',
-        'largura' => 'required'
-      ]);
 
       $template = new Template([
         'nome' => $request->get('nome'),
@@ -97,13 +93,8 @@ class TemplateController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StoreFormRequest $request, $id)
     {
-      $request->validate([
-        'nome'=>'required',
-        'altura'=> 'required',
-        'largura' => 'required'
-      ]);
 
       $template = Template::find($id);
       $template->nome = $request->get('nome');
@@ -112,7 +103,7 @@ class TemplateController extends Controller
       $template->largura = $request->get('largura');
       $template->save();
 
-      return redirect('/template')->with('success', 'Template alterado com sucesso!');
+      return redirect('/template')->with( 'sucesso', 'Template alterado com sucesso!');
     }
 
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Image;
 use App\Template;
+use App\Http\Requests\Image\StoreFormRequest;
 
 class ImageController extends Controller
 {
@@ -42,12 +43,9 @@ class ImageController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreFormRequest $request)
     {
-      $request->validate([
-        'filename' => 'required',
-        'filename.*' => 'image|mimes:jpeg,png,jpg,|max:2048'
-      ]);
+
       if($request->hasfile('filename'))
       {
 
@@ -70,7 +68,7 @@ class ImageController extends Controller
           }  
         }
       }
-      return redirect('image');
+      return redirect('image')->with('success', 'Imagem editada com sucesso!');
     }
 
 

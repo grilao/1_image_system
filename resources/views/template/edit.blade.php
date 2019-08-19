@@ -9,9 +9,9 @@
 @section ('content')
        
     @if (count($errors) > 0)
-        <div>
-            <strong>Whoops!</strong> There were some problems with your input.<br><br>
-            <ul>
+        <div class="form-erro">
+            <strong>Não foi possível realizar a edição!</strong><br><br>Erros:<br>
+            <ul style="list-style: none;">
                 @foreach ($errors->all() as $error)
                     <li>{{ $error }}</li>
                 @endforeach
@@ -19,9 +19,9 @@
         </div>
     @endif
     @if(session('success'))
-        <div>
+        <div class="form-sucesso">
             {{ session('success') }}
-        </div> 
+        </div>
     @endif
 
     <h3 style="margin-bottom: 50px;">Edição de Template</h3>
@@ -41,12 +41,12 @@
         </div>
         <div>
             <label for="altura_template">Altura:</label><br/>
-            <input class="input" type="number" id="altura_template" name="altura" value={{ $template->altura }}><br/><br/>
+            <input class="input" type="text" id="altura_template" name="altura" value={{ $template->altura }}><br/><br/>
             <span class="span-posicao" id="span-altura">Insira as alturas das imagens em pixels</span>
         </div>
         <div>
             <label for="largura_template">Largura:</label><br/>
-            <input class="input" type="number" id="largura_template" name="largura" value={{ $template->largura }}><br/><br/>
+            <input class="input" type="text" id="largura_template" name="largura" value={{ $template->largura }}><br/><br/>
             <span class="span-posicao" id="span-largura">Insira as larguras das imagens em pixels</span>
         </div>
 
