@@ -18,19 +18,25 @@
 
     @foreach ( $image as $image )
         
-        <div class="edicao">
+        <?php
+            $image_certa = $image->filename;
+        ?>
+        <div class="index">
             <?php
-                $image_certa = $image->filename;
-            ?>
+                echo "<p class='index-p'>$image_certa</p>";
+            ?> 
+            <div class="index-div">
+                <img id="img" src="{{ asset('images/'. $image_certa .'') }}" name="img" class="index-div-img" title="{{$image_certa}}"/>
+            </div>
 
-            <img src="{{ asset('images/'. $image_certa .'') }}" id="img{{$image->id}}" name="img{{$image->id}}" title="{{$image_certa}}" class="edicao_div_img"/>
-
-            <a href="{{ route('image.edit', $image->id)}}">Editar</a>
-            <form action="{{ route('image.destroy', $image->id)}}" method="post">
+            <div class="center">
+                <a href="{{ route('image.edit', $image->id)}}"><button style="padding-left: 15px; padding-right: 15px; float: left; margin-right: 15px;" class="form-button-edit" type="submit">Editar</button></a>
+                <form action="{{ route('image.destroy', $image->id)}}" method="post">
                 @csrf
                 @method('DELETE')
-                <button type="submit">Excluir</button>
-            </form>
+                    <button class="form-button-excluir" style="padding-left: 15px; padding-right: 15px;" type="submit">Excluir</button>
+                </form>
+            </div>
         </div>
     
     @endforeach

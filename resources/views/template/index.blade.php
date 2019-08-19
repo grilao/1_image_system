@@ -15,30 +15,30 @@
     @endif
     <h3>Lista de Templates</h3>
 
-    <table border="1px black">
-        <tr>
-            <th>Id</th>
-            <th>Nome</th>
-            <th>Descrição</th>
-            <th>Alturas</th>
-            <th>Larguras</th>
-            <th colspan="2">Ação</th>
+    <table>
+        <tr class="cab-table">
+            <th style="border-radius: 15px 0px 0px 0px;" class="cab-th-table">Id</th>
+            <th class="cab-th-table">Nome</th>
+            <th class="cab-th-table">Descrição</th>
+            <th class="cab-th-table">Alturas</th>
+            <th class="cab-th-table">Larguras</th>
+            <th style="border-radius: 0px 15px 0px 0px;" class="cab-th-table" colspan="2">Ação</th>
         </tr>
 
     @foreach ( $templates as $template )
             
-        <tr>
-            <td>{{$template->id}}</td>
-            <td>{{$template->nome}}</td>
-            <td>{{$template->descricao}}</td>
-            <td>{{$template->altura}}</td>
-            <td>{{$template->largura}}</td>
-            <td><a href="{{ route('template.edit', $template->id)}}">Editar</a></td>
+        <tr class="line-table">
+            <td class="line-td-table">{{$template->id}}</td>
+            <td class="line-td-table">{{$template->nome}}</td>
+            <td class="line-td-table">{{$template->descricao}}</td>
+            <td class="line-td-table">{{$template->altura}}</td>
+            <td class="line-td-table">{{$template->largura}}</td>
+            <td><a style="padding-left: 15px; padding-right: 15px;" href="{{ route('template.edit', $template->id)}}"><button  class="form-button-edit" style="padding-left: 15px; padding-right: 15px;" type="submit">Editar</button></a></td>
             <td>
-                <form action="{{ route('template.destroy', $template->id)}}" method="post">
+                <form style="padding-left: 15px; padding-right: 15px;" action="{{ route('template.destroy', $template->id)}}" method="post">
                   @csrf
                   @method('DELETE')
-                  <button type="submit">Excluir</button>
+                  <button class="form-button-excluir" style="padding-left: 15px; padding-right: 15px;" type="submit">Excluir</button>
                 </form>
             </td>
         </tr>

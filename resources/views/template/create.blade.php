@@ -33,8 +33,8 @@
         </div>
         <div>
             <label for="descricao_template">Descrição:</label><br/>
-            <textarea class="input" id="descricao_template" name="descricao"></textarea><br/><br/>
-            <span style="top: -60px;" class="span-posicao" id="span-descricao">Insira uma breve descrição do template</span>
+            <input class="input" id="descricao_template" name="descricao"></input><br/><br/>
+            <span class="span-posicao" id="span-descricao">Insira uma breve descrição do template</span>
         </div>
         <div>
             <label for="altura_template">Altura:</label><br/>

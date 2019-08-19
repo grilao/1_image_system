@@ -24,16 +24,15 @@ class StoreFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'filename' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+            'filename.*' => ['required', 'mimes:jpeg,jpg, png'],
         ];
     }
 
     public function messages()
     {
         return [
-            'filename.required' => 'Você não adicionou nenhuma imagem',
-            'filename.image' => 'Somente imagens podem ser enviadas',
-            'filename.mimes' => 'Somente arquivos jpeg, jpg e png são permitidos',
+            'filename.*.required' => 'Você não adicionou nenhuma imagem',
+            'filename.*.mimes' => 'Somente arquivos jpeg, jpg e png são permitidos',
         ];
     }
 }

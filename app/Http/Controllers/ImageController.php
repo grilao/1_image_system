@@ -68,7 +68,7 @@ class ImageController extends Controller
           }  
         }
       }
-      return redirect('image')->with('success', 'Imagem editada com sucesso!');
+      return redirect('image')->with('success', 'Imagens enviadas com sucesso!');
     }
 
 

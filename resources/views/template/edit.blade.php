@@ -36,8 +36,8 @@
         </div>
         <div>
             <label for="descricao_template">Descrição:</label><br/>
-            <textarea class="input" id="descricao_template" name="descricao" value={{ $template->descricao }}></textarea><br/><br/>
-            <span style="top: -60px;" class="span-posicao" id="span-descricao">Insira uma breve descrição do template</span>
+            <input class="input" id="descricao_template" name="descricao" value={{ $template->descricao }}></input><br/><br/>
+            <span class="span-posicao" id="span-descricao">Insira uma breve descrição do template</span>
         </div>
         <div>
             <label for="altura_template">Altura:</label><br/>
@@ -52,5 +52,7 @@
 
         <button class="input-enviar" type="submit" style="margin-top:10px">Update</button>
     </form>
+    <br><a href="{{ route('template.index') }}"><button class="input-enviar" type="submit" style="margin-top:10px">Voltar</button></a>
+
     
 @endsection
