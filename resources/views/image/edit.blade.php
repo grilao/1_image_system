@@ -8,8 +8,8 @@
 
 @section ('content')
        
-@if (count($errors) > 0)
-        <div class="form-erro">
+    @if (count($errors) > 0)
+        <div class="alert alert-danger" role="alert">
             <strong>Não foi possível realizar a edição!</strong><br><br>Erros:<br>
             <ul style="list-style: none;">
                 @foreach ($errors->all() as $error)
@@ -19,10 +19,12 @@
         </div>
     @endif
     @if(session('sucesso'))
-        <p>{{ session('sucesso') }}<p>
+    <div class="alert alert-success">
+            {{ session('success') }}
+        </div><br />
     @endif
 
-    <h3>Edição de Imagem</h3>
+    <h3 class="h3-main">Edição de Imagem</h3>
     <form method="post" action="{{ route('image.update', $image->id) }}">
         @method('PATCH')
         @csrf
@@ -61,9 +63,9 @@
                         <option>Template 1</option>
                     </select>            
                 </div>
+                <button class="btn btn-primary" type="submit" style="margin-top:10px">Upload</button>                
             </div>
-
-        <button type="submit" style="margin-top:10px">Update</button>
     </form>
+    <br><a href="{{ route('image.index') }}"><button class="btn btn-primary" style="margin-top:10px">Voltar</button></a>
     
 @endsection

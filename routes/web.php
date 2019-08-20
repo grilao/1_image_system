@@ -36,3 +36,8 @@ Route::resource('template', 'TemplateController');
 // Route::get('mapa', function () {
 //     return view('help.mapa');
 // });
+
+// LOGIN
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

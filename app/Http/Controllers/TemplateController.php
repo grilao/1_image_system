@@ -103,7 +103,7 @@ class TemplateController extends Controller
       $template->largura = $request->get('largura');
       $template->save();
 
-      return redirect('/template')->with( 'sucesso', 'Template alterado com sucesso!');
+      return redirect('/template')->with('success', 'Template alterado com sucesso!');
     }
 
 
@@ -119,6 +119,6 @@ class TemplateController extends Controller
         $template = Template::find($id);
         $template->delete();
 
-      return redirect('/template')->with('success', 'Template excluido com sucesso!');
+      return redirect('/template')->with('success', 'Template excluído com sucesso!');
     }
 }

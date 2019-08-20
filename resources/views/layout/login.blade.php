@@ -22,14 +22,10 @@ rel="stylesheet" type="text/css">
 
     <body>
 
-        <div class="container">
-            
-            @include('layout.nav')
+        @include('layout.nav')
 
-            @yield('content')
+        @yield('content')
         
-        </div>
-
     </body>
 
 </html>
