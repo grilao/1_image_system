@@ -204,9 +204,8 @@ body{
 /* ------------------> Página de edição de imagem <------------------ */
 
 .edicao{
-    width: 48%;
-    height: 310px;
-    margin-left: 1.25%;
+    width: 98%;
+    margin-left: 1%;
     margin-bottom: 2%;
     float: left;
     background-color: rgb(239, 240, 239);
@@ -214,15 +213,12 @@ body{
     border-radius: 5px;
 }
 
-.edicao_p{
-    margin: 0;
-    width: 300px;
-    margin-left: auto;
-    margin-right: auto;
-    line-height: 20px;
-    text-align: center;
+.edicao-p{
+    margin-top: 10px;
+    margin-left: 50px;
     position: relative;
-    top: 12px;
+    left: -30px;
+    top: 5px;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -234,7 +230,6 @@ body{
     width: 48%;
     height: 200px;
     position: relative;
-    float: left;
     top: 7%;
     left: 4%;
     padding: 10px;
@@ -273,13 +268,13 @@ body{
 }
 
 .edicao-div-temp{
-	width: 75%;
-	height: 25px;
-	margin-left: auto;
-	margin-right: auto;
+	width: 23%;
+    height: 25px;
+    position: absolute;
+    top: 81px;
+    left: 58%;
 	line-height: 25px;
 	text-align: center;
-	margin-top: 255px;
 }
 
 .edicao-div-edicao-span{
