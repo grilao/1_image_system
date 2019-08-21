@@ -175,6 +175,9 @@ body{
     position: relative;
     left: -30px;
     top: 0px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .index-div{
