@@ -135,7 +135,7 @@ body{
 /* ------------------> Div maior (fora do menu) <------------------ */
 
 
-.container{
+.container-main{
     width: 80%;
     min-height: 80%;
 	position: relative;
