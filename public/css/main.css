@@ -158,19 +158,20 @@ body{
 /* ------------------> Página de listagem de imagens <------------------ */
 
 .index{
-    width: 48%;
-    height: 410px;
-    margin-left: 1.25%;
+    width: 32%;
+    height: 390px;
+    margin-right: 0.7%;
     margin-bottom: 2%;
     position: relative;
     float: left;
-    background-color: rgb(219, 219, 219);
-    border: solid 1px rgb(170, 169, 169);
+    background-color: rgb(230, 228, 228);
+    border: solid 1px rgb(209, 209, 209);
     border-radius: 5px;
 }
 
 .index-p{
     margin-top: 20px;
+    width: 50%;
     margin-left: 50px;
     position: relative;
     left: -30px;
@@ -189,12 +190,22 @@ body{
 
 .index-div-img{
     max-width: 90%;
-    max-height: 290px;
+    max-height: 220px;
     display: block;
-    position :relative;
+    position: relative;
     left: 50%;
-    top: 53%;
+    top: 43%;
     transform: translate(-50%, -50%);
+}
+
+.index-div-temp{
+    width: 80%;
+    height: 25px;
+    position: relative;
+	line-height: 25px;
+    text-align: center;
+    left: 10%;
+    top: -35px;
 }
 
 .center{
@@ -208,7 +219,6 @@ body{
 
 .edicao{
     width: 98%;
-    margin-left: 1%;
     margin-bottom: 2%;
     float: left;
     background-color: rgb(239, 240, 239);
@@ -230,61 +240,67 @@ body{
 /* img */
 
 .edicao-div{
-    width: 48%;
-    height: 200px;
+    width: 98%;
+    height: 500px;
     position: relative;
-    top: 7%;
-    left: 4%;
+    left: 1%;
     padding: 10px;
 }
 
 .edicao-div-img{
     max-width: 100%;
-    max-height: 200px;
+    max-height: 500px;
     display: block;
     position :relative;
     left: 50%;
-    top: 50%;
+    top: 53%;
     transform: translate(-50%, -50%);
+    padding: 25px;
+    border: solid 1px rgb(239, 240, 239);
+    border-radius: 3px;
+}
+
+.edicao-div-img:hover{
+    background-color: rgb(235, 235, 235);
+    border: solid 1px rgb(192, 192, 192);
+    transition: background-color, border 0.5s;
 }
 
 /* Brilho, contraste e saturação */
 
 .edicao-div-edicao{
-    width: 38%;
-    height: 185px;
+    width: 90%;
     position: relative;
-    left: 6%;
-    top: 7%;
+    left: 5%;
+    margin-top: 30px;
+    border: solid 1px rgb(239, 240, 239);
+    margin-bottom: 30px;
+    border-radius: 3px;
     float: left;
-	padding: 10px;
-	padding-top: 25px;
+    padding: 20px;
+}
+
+.edicao-div-edicao:hover{
+    background-color: rgb(235, 235, 235);
+    border: solid 1px rgb(192, 192, 192);
+    transition: background-color, border 0.5s;
 }
 
 .edicao-div-edicao-label{
-	margin-right: 65px;
+	margin-right: 3px;
 }
 
-.edicao-div-edicao-inputs{
-	width: 70%;
-    margin-bottom: 15px;
+.edicao-div-cor{
+    float: left;
+    width: 27%;
+    margin-left: 5%;
 }
 
-.edicao-div-temp{
-	width: 23%;
-    height: 25px;
-    position: absolute;
-    top: 81px;
-    left: 58%;
-	line-height: 25px;
-	text-align: center;
-}
-
-.edicao-div-edicao-span{
-	margin-left: 1%;
-	position: relative;
-	top: -7px;
-}
+/* .edicao-div-edicao-span{
+    position: relative;
+    top: -53px;
+    left: 45px;
+} */
 
 .edicao-div-edicao-input-number{
 	display: none;

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Image;
+use File;
 use App\Template;
 use App\Http\Requests\Image\StoreFormRequest;
 
@@ -115,7 +116,6 @@ class ImageController extends Controller
       $image->brilho = $request->get('brilho');
       $image->contraste = $request->get('contraste');
       $image->saturacao = $request->get('saturacao');
-      $image->template = $request->get('template');
       $image->save();
 
       return redirect('/image')->with('success', 'Imagem editada com sucesso!');
@@ -133,6 +133,7 @@ class ImageController extends Controller
     {
       $image = Image::find($id);
       $image->delete();
+      unlink(public_path('images/'.$image->filename));
 
       return redirect('/image')->with('success', 'Imagem excluída com sucesso!');
     }
