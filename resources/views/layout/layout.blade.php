@@ -22,7 +22,7 @@ rel="stylesheet" type="text/css">
 
     <body>
 
-        <div class="container">
+        <div class="container-main">
             
             @include('layout.nav')
 
