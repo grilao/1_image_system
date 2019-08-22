@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Image;
+use App\ImageModel;
 use File;
 use App\Template;
 use App\Http\Requests\Image\StoreFormRequest;

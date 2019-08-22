@@ -94,8 +94,6 @@
                 $('#contraste_number').val(contraste-100);
                 $('#saturacao_number').val(saturacao-100);
 
-
-
             })
         });
 
