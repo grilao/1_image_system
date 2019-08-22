@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Image;
+namespace App\Http\Requests\Imagem;
 
 use Illuminate\Foundation\Http\FormRequest;
 

@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
+
 use Illuminate\Http\Request;
-use App\ImageModel;
+use App\Imagem;
 use File;
 use App\Template;
-use App\Http\Requests\Image\StoreFormRequest;
+use App\Http\Requests\Imagem\StoreFormRequest;
 
-class ImageController extends Controller
+class ImagemController extends Controller
 {
 
 
@@ -19,9 +20,9 @@ class ImageController extends Controller
      */
     public function index()
     {
-        $image = Image::all();
+        $imagem = Imagem::all();
         $template = Template::all();
-        return view('image.index', compact('image', 'template'));
+        return view('imagem.index', compact('imagem', 'template'));
     }
 
 
@@ -33,7 +34,7 @@ class ImageController extends Controller
      */
     public function create()
     {
-        return view('image.create');
+        return view('imagem.create');
     }
 
 
@@ -50,16 +51,16 @@ class ImageController extends Controller
       if($request->hasfile('filename'))
       {
 
-        foreach($request->file('filename') as $image)
+        foreach($request->file('filename') as $imagem)
         {
-          $name=$image->getClientOriginalName();
-          $image->move(public_path().'/images/', $name);
-          $count_name = (is_array($image) && count($image));
+          $name=$imagem->getClientOriginalName();
+          $imagem->move(public_path().'/images/', $name);
+          $count_name = (is_array($imagem) && count($imagem));
           for ($i = 0; $i <= $count_name; $i++)
           {
             $data[$i] = $name;
 
-            $upload= new Image();
+            $upload= new Imagem();
             $upload->filename=$data[$i];
             $upload->brilho='0';
             $upload->contraste='0';
@@ -69,7 +70,7 @@ class ImageController extends Controller
           }  
         }
       }
-      return redirect('image')->with('success', 'Imagens enviadas com sucesso!');
+      return redirect('imagem')->with('success', 'Imagens enviadas com sucesso!');
     }
 
 
@@ -95,9 +96,9 @@ class ImageController extends Controller
      */
     public function edit($id)
     {
-        $image = Image::find($id);
+        $imagem = Imagem::find($id);
         $template = Template::find($id);
-        return view('image.edit', compact('image', 'template'));
+        return view('imagem.edit', compact('imagem', 'template'));
     }
 
 
@@ -112,13 +113,13 @@ class ImageController extends Controller
     public function update(Request $request, $id)
     {
 
-      $image = Image::find($id);
-      $image->brilho = $request->get('brilho');
-      $image->contraste = $request->get('contraste');
-      $image->saturacao = $request->get('saturacao');
-      $image->save();
+      $imagem = Imagem::find($id);
+      $imagem->brilho = $request->get('brilho');
+      $imagem->contraste = $request->get('contraste');
+      $imagem->saturacao = $request->get('saturacao');
+      $imagem->save();
 
-      return redirect('/image')->with('success', 'Imagem editada com sucesso!');
+      return redirect('/imagem')->with('success', 'Imagem editada com sucesso!');
     }
 
 
@@ -131,10 +132,10 @@ class ImageController extends Controller
      */
     public function destroy($id)
     {
-      $image = Image::find($id);
-      $image->delete();
-      unlink(public_path('images/'.$image->filename));
+      $imagem = Imagem::find($id);
+      $imagem->delete();
+      unlink(public_path('images/'.$imagem->filename));
 
-      return redirect('/image')->with('success', 'Imagem excluída com sucesso!');
+      return redirect('/imagem')->with('success', 'Imagem excluída com sucesso!');
     }
 }

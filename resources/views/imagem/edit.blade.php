@@ -24,12 +24,12 @@
         </div><br />
     @endif
     <h3 class="h3-main">Edição de Imagem</h3>
-    <form method="post" action="{{ route('image.update', $image->id) }}">
+    <form method="post" action="{{ route('imagem.update', $imagem->id) }}">
         @method('PATCH')
         @csrf
 
         <?php
-            $image_certa = $image->filename;
+            $image_certa = $imagem->filename;
         ?>
         
         <div class="edicao">
@@ -68,7 +68,7 @@
         <button class="btn btn-primary" style="position: relative; left: 50%; margin-left: -32.91px; margin-bottom: 20px;" type="submit" style="margin-top:10px">Salvar</button>
 
     </form>
-    <a href="{{ route('image.index') }}"><button style="position: relative; left: 50%; margin-left: -32.45px;" class="btn btn-primary" type="submit" >Voltar</button></a>
+    <a href="{{ route('imagem.index') }}"><button style="position: relative; left: 50%; margin-left: -32.45px;" class="btn btn-primary" type="submit" >Voltar</button></a>
 
     <script>
 

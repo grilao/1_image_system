@@ -6,7 +6,7 @@
         
         <div class="menu-div-div-img">
         
-            <a href="{{ route('image.create') }}"><img class="menu-div-div-img-embrapa" src="{{ asset('images_sistema/Embrapablack.png') }}"></a>
+            <a href="{{ route('imagem.create') }}"><img class="menu-div-div-img-embrapa" src="{{ asset('images_sistema/Embrapablack.png') }}"></a>
         
         </div>
 
@@ -16,7 +16,7 @@
     <div class="menu-div-div-links">
         
         <ul class="menu-div-div-links-menu">
-            <li><a style="width: 200px;" class="link-nav" href="{{ route('image.create') }}">Início</a></li>
+            <li><a style="width: 200px;" class="link-nav" href="{{ route('imagem.create') }}">Início</a></li>
             <li><a style="width: 200px;" class="link-nav">Templates</a>
                 <ul>
                     <li><a style="width: 200px; margin-left: -40px;" class="link-nav" href="{{ route('template.create') }}">Novo template</a></li>
@@ -25,8 +25,8 @@
             </li>
             <li><a style="width: 200px;" class="link-nav">Imagens</a>
                 <ul>
-                    <li><a style="width: 200px; margin-left: -40px;" class="link-nav" href="{{ route('image.create') }}">Fazer upload</a></li>
-                    <li><a style="width: 200px; margin-left: -40px;" class="link-nav" href="{{ route('image.index') }}">Lista de imagens</a></li>
+                    <li><a style="width: 200px; margin-left: -40px;" class="link-nav" href="{{ route('imagem.create') }}">Fazer upload</a></li>
+                    <li><a style="width: 200px; margin-left: -40px;" class="link-nav" href="{{ route('imagem.index') }}">Lista de imagens</a></li>
                 </ul>
             </li>
 

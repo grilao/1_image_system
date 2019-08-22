@@ -26,11 +26,11 @@
 
     <br clear="all">
     <h3 class="h3-main">Upload de Imagem</h3>
-    <form method="post" action="{{ route('image.store') }}" enctype="multipart/form-data">
+    <form method="post" action="{{ route('imagem.store') }}" enctype="multipart/form-data">
         {{csrf_field()}}
 
         <div>
-            <input class="input-file" id="input-file" type="file" multiple name="filename[]">
+            <input class="input-file" id="input-file" type="file" multiple name="filename[]" accept="image/*">
         </div>
 
         <button class="btn btn-primary" type="submit" style="margin-top:10px">Enviar</button>

@@ -14,10 +14,10 @@
 
 // IMAGEM
 Route::get('/', function () {
-    return view('image.create');
+    return view('imagem.create');
 });
 
-Route::resource('image', 'ImageController');
+Route::resource('imagem', 'ImagemController');
 
 
 // TEMPLATE

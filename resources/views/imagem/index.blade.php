@@ -16,18 +16,18 @@
 
     <h3 class="h3-main">Imagens</h3>
 
-    @foreach ( $image as $image )
+    @foreach ( $imagem as $imagem )
         
         <?php
-            $image_certa = $image->filename;
+            $imagem_certa = $imagem->filename;
         ?>
         <div class="index">
             <?php
-                echo "<p title='$image_certa' class='index-p'>$image_certa</p>";
+                echo "<p title='$imagem_certa' class='index-p'>$imagem_certa</p>";
             ?>
             <div class="center">
-                <a href="{{ route('image.edit', $image->id)}}"><button style="padding-left: 15px; padding-right: 15px; float: left; margin-left: -137px;" class="btn btn-primary" type="submit">Editar</button></a>
-                <form style="margin-left: -60px;" action="{{ route('image.destroy', $image->id)}}" method="post">
+                <a href="{{ route('imagem.edit', $imagem->id)}}"><button style="padding-left: 15px; padding-right: 15px; float: left; margin-left: -137px;" class="btn btn-primary" type="submit">Editar</button></a>
+                <form style="margin-left: -60px;" action="{{ route('imagem.destroy', $imagem->id)}}" method="post">
                 @csrf
                 @method('DELETE')
                     <button class="btn btn-danger" style="padding-left: 15px; padding-right: 15px;" type="submit">Excluir</button>
@@ -35,7 +35,7 @@
             </div>
             <hr>
             <div class="index-div">
-                <img id="img" src="{{ asset('images/'. $image_certa .'') }}" name="img" class="index-div-img" title="{{$image_certa}}"/>
+                <img id="img" src="{{ asset('images/'. $imagem_certa .'') }}" name="img" class="index-div-img" title="{{$imagem_certa}}"/>
             </div>
             <div class="index-div-temp">
                 <div class="input-group mb-3">
