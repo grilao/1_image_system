@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Imagem;
 use File;
+use Image;
 use App\Template;
 use App\Http\Requests\Imagem\StoreFormRequest;
 
@@ -56,6 +57,9 @@ class ImagemController extends Controller
           $name=$imagem->getClientOriginalName();
           $imagem->move(public_path().'/images/', $name);
           $count_name = (is_array($imagem) && count($imagem));
+          $image_brilho = Image::make(public_path('/images/'.$name));
+          $image_brilho->resize(320, 240);
+          $image_brilho->save(public_path('/images_edited/'.$name));
           for ($i = 0; $i <= $count_name; $i++)
           {
             $data[$i] = $name;
