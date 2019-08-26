@@ -6,7 +6,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Imagem;
 use File;
-use Image;
+use Imagick;
+use ZipArchive;
 use App\Template;
 use App\Http\Requests\Imagem\StoreFormRequest;
 
@@ -57,9 +58,6 @@ class ImagemController extends Controller
           $name=$imagem->getClientOriginalName();
           $imagem->move(public_path().'/images/', $name);
           $count_name = (is_array($imagem) && count($imagem));
-          $image_brilho = Image::make(public_path('/images/'.$name));
-          $image_brilho->resize(320, 240);
-          $image_brilho->save(public_path('/images_edited/'.$name));
           for ($i = 0; $i <= $count_name; $i++)
           {
             $data[$i] = $name;
@@ -101,7 +99,7 @@ class ImagemController extends Controller
     public function edit($id)
     {
         $imagem = Imagem::find($id);
-        $template = Template::find($id);
+        $template = Template::all();
         return view('imagem.edit', compact('imagem', 'template'));
     }
 
@@ -121,9 +119,27 @@ class ImagemController extends Controller
       $imagem->brilho = $request->get('brilho');
       $imagem->contraste = $request->get('contraste');
       $imagem->saturacao = $request->get('saturacao');
+      $imagem->template = $request->get('template');
       $imagem->save();
 
-      return redirect('/imagem')->with('success', 'Imagem editada com sucesso!');
+      // Trabalhando com a edição da imagem pelo imagick
+
+      $name=$imagem->filename;
+      $upload_image = '/xampp/htdocs/guilherme/1_image_system/public/images/'.$name;
+      $image = new Imagick($upload_image);
+
+      $image->brightnessContrastImage($imagem->brilho-100, $imagem->contraste-100);
+
+      $image_download = file_put_contents ($name, $image);
+
+      $origem = $name;
+
+      $destino = '/xampp/htdocs/guilherme/1_image_system/public/images/'.$name;
+      
+      if (copy($origem, $destino)){
+        unlink($name);
+        return redirect('/imagem')->with('success', 'Imagem editada com sucesso!');
+      }
     }
 
 

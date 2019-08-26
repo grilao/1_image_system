@@ -199,13 +199,22 @@ body{
 }
 
 .index-div-temp{
-    width: 80%;
+    width: 60%;
     height: 25px;
     position: relative;
 	line-height: 25px;
     text-align: center;
-    left: 10%;
-    top: -35px;
+    left: 20%;
+    top: -25px;
+}
+
+.index-span{
+    border: solid 1px rgb(209, 209, 209);
+    padding: 10px;
+    border-radius: 5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .center{
@@ -304,6 +313,16 @@ body{
 
 .edicao-div-edicao-input-number{
 	display: none;
+}
+
+.edicao-div-temp{
+    width: 40%;
+    height: 25px;
+    position: relative;
+	line-height: 25px;
+    text-align: center;
+    left: 30%;
+    top: 0px;
 }
 
 /* ------------------> inputs e buttons <------------------ */

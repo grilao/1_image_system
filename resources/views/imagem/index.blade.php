@@ -38,22 +38,13 @@
                 <img id="img" src="{{ asset('images/'. $imagem_certa .'') }}" name="img" class="index-div-img" title="{{$imagem_certa}}"/>
             </div>
             <div class="index-div-temp">
-                <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                        <label class="input-group-text" for="template">Templates</label>
-                    </div>
-                    <select class="custom-select" id="template">
-                    @foreach ( $template as $temp )
-                        <option value="1">{{$temp->nome}}</option>
-                    @endforeach
-                    </select>
-                </div>
+                <span class="index-span"><strong>Template: </strong>{{$imagem->template}}</span>
             </div>
         </div>
     
     @endforeach
 
-    <a href="download"><button style="position: relative; padding-left: 15px; padding-right: 15px; margin-left: 50px;" class="btn btn-primary" >Download</button></a>
+    <a href="aplicarTemplate"><button style="position: relative; padding-left: 15px; padding-right: 15px; margin-left: 50px;" class="btn btn-primary" >Download</button></a>
 
     <br clear="all">
 

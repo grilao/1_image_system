@@ -47,28 +47,37 @@
                     <label class="edicao-div-edicao-label" for="brilho">Brilho:</label>
                     <span class="edicao-div-edicao-span" id="valor_brilho"></span>
                     <input type="range" class="custom-range" id="brilho" value="100" min="0" max="200" name="brilho">
-                    <input type="number" class="edicao-div-edicao-input-number" id="brilho_number" value="0">
                 </div>   
                 
                 <div class="edicao-div-cor">
                     <label class="edicao-div-edicao-label" for="contraste">Contraste:</label>
                     <span class="edicao-div-edicao-span" id="valor_contraste"></span>
-                    <input type="range" class="custom-range" id="contraste" min="0" max="200" name="contraste">
-                    <input type="number"  class="edicao-div-edicao-input-number" id="contraste_number" value="0">
+                    <input type="range" class="custom-range" id="contraste" value="100" min="0" max="200" name="contraste">
                 </div>
 
                 <div class="edicao-div-cor">
                     <label class="edicao-div-edicao-label" for="saturacao">Saturação:</label>
                     <span class="edicao-div-edicao-span" id="valor_saturacao"></span>
-                    <input type="range" class="custom-range" id="saturacao" min="0" max="200" name="saturacao">
-                    <input type="number"  class="edicao-div-edicao-input-number" id="saturacao_number" value="0">
+                    <input type="range" class="custom-range" id="saturacao" value="100" min="0" max="200" name="saturacao">
                 </div>
             </div>
         </div>
-        <button class="btn btn-primary" style="position: relative; left: 50%; margin-left: -32.91px; margin-bottom: 20px;" type="submit" style="margin-top:10px">Salvar</button>
+        <div class="edicao-div-temp">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <label class="input-group-text" for="template">Templates</label>
+                </div>
+                <select class="custom-select" id="template" name="template">
+                @foreach ( $template as $temp )
+                    <option value="{{$temp->nome}}">{{$temp->nome}}</option>
+                @endforeach
+                </select>
+            </div>
+        </div>
+        <button class="btn btn-primary" style="position: relative; left: 50%; margin-left: -32.91px; margin-bottom: 20px; top:  50px;" type="submit" style="margin-top:10px">Salvar</button>
 
     </form>
-    <a href="{{ route('imagem.index') }}"><button style="position: relative; left: 50%; margin-left: -32.45px;" class="btn btn-primary" type="submit" >Voltar</button></a>
+    <a href="{{ route('imagem.index') }}"><button style="position: relative; left: 50%; margin-left: -32.45px; top: 50px; margin-bottom: 50px;" class="btn btn-primary" type="submit" >Voltar</button></a>
 
     <script>
 
@@ -77,7 +86,7 @@
             $('#valor_contraste').html('0');
             $('#valor_saturacao').html('0');
 
-            $('form').change(function(){
+            $('input[type=range]').change(function(){
 
                 var brilho = $('#brilho').val();
                 var contraste = $('#contraste').val();
@@ -86,13 +95,9 @@
                 $('#valor_contraste').html(contraste-100);
                 $('#valor_saturacao').html(saturacao-100);
 
-                var filtros = 'brightness('+ brilho +'%) contrast('+ contraste +'%) saturate('+ saturacao +'%)';
+                var filtros = 'brightness('+ brilho +'%) contrast('+ contraste +'%)';
             
                 $('#img').css('filter', filtros);
-
-                $('#brilho_number').val(brilho-100);
-                $('#contraste_number').val(contraste-100);
-                $('#saturacao_number').val(saturacao-100);
 
             })
         });

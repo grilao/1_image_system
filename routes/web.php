@@ -20,6 +20,11 @@ Route::get('/', function () {
 Route::resource('imagem', 'ImagemController');
 
 
+// DOWNLOAD
+Route::get('aplicarTemplate', 'DownloadController@aplicarTemplate');
+Route::get('zipar', 'DownloadController@zipar');
+Route::get('download', 'DownloadController@download');
+
 // TEMPLATE
 Route::get('template', function() {
     return view('template.create');
