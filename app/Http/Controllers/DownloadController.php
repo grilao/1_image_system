@@ -36,7 +36,7 @@ class DownloadController extends Controller
 
                     $origem = $upload_image . '_resized';
 
-                    $destino = $upload_image . '_resized';;
+                    $destino = $upload_image . '_resized';
                 }
             }
         }
@@ -55,19 +55,37 @@ class DownloadController extends Controller
     {
 
         $imagem = Imagem::all();
-        $caminho = '/xampp/htdocs/guilherme/1_image_system/public/images/';
-        $diretório = dir($caminho);
 
+        // Criando um contador para fazer o loop
+        $pasta = '/xampp/htdocs/guilherme/1_image_system/public/images/';
+        $arquivos = glob("$pasta{*.jpg,*.JPG,*.png,*.jpeg}", GLOB_BRACE);
+        $i = 0;
+        $images = array();
+        foreach($arquivos as $img){
+            $images[] = '<img src=\"xampp/htdocs/guilherme/1_image_system/public/images/".$img."\">';
+            $i++;
+        }
+        // Fazendo o loop de compactação em todas as imagens
 
+        foreach($imagem as $imag)
+        {
+            for($a = 0; $a <= $i; $a++){
 
-        $name=$imagem->filename;
-        $imagem_zip = new ZipArchive;
-        $imagem_zip->open('/xampp/htdocs/guilherme/1_image_system/public/images/' . $imagem->template . '_' . $name . '.zip', ZipArchive::CREATE);
-        $imagem_zip->addFile('/xampp/htdocs/guilherme/1_image_system/public/images/' . $name, $imagem->template . '_' . $name);
-        $imagem_zip->close();
-        unlink($name);
+                $name[$a]=$imag->filename;
+                $imagem_zip = new ZipArchive;
+                $imagem_zip->open('/xampp/htdocs/guilherme/1_image_system/public/compactados/' . $imag->template . '_' . $name[$a] . '.zip', ZipArchive::CREATE);
+                $imagem_zip->addFile('/xampp/htdocs/guilherme/1_image_system/public/images/' . $name[$a], $imag->template . '_' . $name[$a]);
+                $imagem_zip->close();
 
-        return redirect('/imagem')->with('success', 'Imagens compactadas com sucesso!');
+            }
+            $imag->delete();
+            $caminho = public_path().'/images/';
+            unlink($caminho . $imag->filename);
+            $caminho2 = public_path().'/';
+            unlink($caminho2 . $imag->filename);
+        }
+
+        return redirect('/imagem')->with('success', 'Imagens compactadas e baixadas com sucesso!');
     }
 
 
@@ -79,6 +97,22 @@ class DownloadController extends Controller
      */
     public function download()
     {
+        $imagem = Imagem::all();
 
+        // Criando um contador para fazer o loop
+        $pasta = '/xampp/htdocs/guilherme/1_image_system/public/compactados/';
+        $arquivos = glob("$pasta{*.zip}", GLOB_BRACE);
+        $i = 0;
+        $compactados = array();
+        foreach($arquivos as $zip){
+            $compactados[] = $zip;
+            $i++;
+            for($a = 0; $a <= $i; $a++)
+            {
+                header('Content-Type: application/zip');
+                header('Content-Disposition: attachment; filename='. $compactados[$a] .'');
+            }
+        }
+        return redirect('/imagem')->with('success', 'Imagens compactadas e baixadas com sucesso');
     }
 }

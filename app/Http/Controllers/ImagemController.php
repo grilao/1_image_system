@@ -50,6 +50,8 @@ class ImagemController extends Controller
     public function store(StoreFormRequest $request)
     {
 
+      $template = Template::all();
+
       if($request->hasfile('filename'))
       {
 
