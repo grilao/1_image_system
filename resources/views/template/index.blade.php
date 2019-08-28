@@ -34,12 +34,12 @@
             <td class="line-td-table">{{$template->descricao}}</td>
             <td class="line-td-table">{{$template->altura}}</td>
             <td class="line-td-table">{{$template->largura}}</td>
-            <td style="border-bottom: solid 1px rgb(255, 255, 255);"><a style="padding-left: 15px; padding-right: 15px; position: absolute; left: 82%; top: 135px;" href="{{ route('template.edit', $template->id)}}"><button  class="btn btn-primary" style="padding-left: 15px; padding-right: 15px;" type="submit">Editar</button></a></td>
+            <td style="border-bottom: solid 1px rgb(255, 255, 255);"><a style="padding-left: 15px; padding-right: 15px; position: relative; left: 30px;" href="{{ route('template.edit', $template->id)}}"><button  class="btn btn-primary" style="padding-left: 15px; padding-right: 15px;" type="submit">Editar</button></a></td>
             <td style="border-bottom: solid 1px rgb(255, 255, 255);">
                 <form style="padding-left: 15px; padding-right: 15px;" action="{{ route('template.destroy', $template->id)}}" method="post">
                   @csrf
                   @method('DELETE')
-                  <button class="btn btn-danger" style="padding-left: 15px; padding-right: 15px; position: absolute; left: 90%; top: 135px;" type="submit">Excluir</button>
+                  <button class="btn btn-danger" style="padding-left: 15px; padding-right: 15px; position: relative;" type="submit">Excluir</button>
                 </form>
             </td>
         </tr>
