@@ -22,8 +22,7 @@ Route::resource('imagem', 'ImagemController');
 
 // DOWNLOAD
 Route::get('aplicarTemplate', 'DownloadController@aplicarTemplate');
-Route::get('zipar', 'DownloadController@zipar');
-Route::get('download', 'DownloadController@download');
+Route::get('downloadExcluir', 'DownloadController@downloadExcluir');
 
 // TEMPLATE
 Route::get('template', function() {

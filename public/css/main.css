@@ -199,7 +199,7 @@ body{
 }
 
 .index-div-temp{
-    width: 60%;
+    width: 100px;
     height: 25px;
     position: relative;
 	line-height: 25px;
@@ -211,6 +211,7 @@ body{
 .index-span{
     border: solid 1px rgb(209, 209, 209);
     padding: 10px;
+    width: 100px;
     border-radius: 5px;
     overflow: hidden;
     text-overflow: ellipsis;

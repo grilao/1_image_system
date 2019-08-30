@@ -38,13 +38,15 @@
         </div>
         <div>
             <label for="altura_template">Altura:</label><br/>
-            <input class="form-control" type="text" id="altura_template" name="altura" placeholder="Insira as alturas das imagens"><br/><br/>
-            <span class="span-dica"><strong>Dica: </strong>Para colocar mais de uma altura, separa cada número por barras ( / ).</span>
+            <input class="form-control" type="text" id="altura_template" name="altura" placeholder="Insira as alturas das imagens. Ex: 240/600/..."><br/><br/>
+            <span class="span-dica"><strong>Dica: </strong>Para inserir mais de uma altura, separa cada número por barras ( / ).</span><br/>
+            <span class="span-dica"><strong>Importante: </strong>Coloque o mesmo número de alturas e larguras.</span>
         </div>
         <div>
             <label for="largura_template">Largura:</label><br/>
-            <input class="form-control" type="text" id="largura_template" name="largura" placeholder="Insira as larguras das imagens"><br/><br/>
-            <span class="span-dica"><strong>Dica: </strong>Para colocar mais de uma largura, separa cada número por barras ( / ).</span>
+            <input class="form-control" type="text" id="largura_template" name="largura" placeholder="Insira as larguras das imagens. Ex: 240/600/..."><br/><br/>
+            <span class="span-dica"><strong>Dica: </strong>Para inserir mais de uma largura, separa cada número por barras ( / ).</span><br/>
+            <span class="span-dica"><strong>Importante: </strong>Coloque o mesmo número de alturas e larguras.</span>
         </div>
 
         <button style="margin-left: 4%;" class="btn btn-primary" id="enviar" type="submit" style="margin-top:10px">Cadastrar</button>
