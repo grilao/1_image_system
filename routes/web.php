@@ -23,7 +23,6 @@ Route::resource('imagem', 'ImagemController');
 // DOWNLOAD
 Route::get('aplicarTemplate', 'DownloadController@aplicarTemplate');
 Route::get('downloadExcluir', 'DownloadController@downloadExcluir');
-Route::get('destroy', 'DownloadController@destroy');
 
 // TEMPLATE
 Route::get('template', function() {

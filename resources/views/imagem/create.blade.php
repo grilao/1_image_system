@@ -30,7 +30,7 @@
         {{csrf_field()}}
 
         <div>
-            <input class="input-file" id="input-file" type="file" multiple name="filename[]" accept="image/*">
+            <input class="input-file" id="input-file" type="file" multiple name="filename[]" accept="image/jpg, image/JPG, image/png, image/PNG, image/jpeg, image/JPEG">
         </div>
 
         <button class="btn btn-primary" type="submit" style="margin-top:10px">Enviar</button>

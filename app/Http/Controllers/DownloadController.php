@@ -6,7 +6,8 @@ use Illuminate\Http\Request;
 use App\Imagem;
 use App\Template;
 use ZipArchive;
-use Imagick;    
+use Imagick;
+use DB;
 
 class DownloadController extends Controller
 {
@@ -64,12 +65,12 @@ class DownloadController extends Controller
         }
 
         // Redirecionando o usuário para a função que faz o download e exclui os arquivos
-        return redirect('downloadExcluir');
+        return redirect('downloadExcluir')->with('success', 'Imagem excluída com sucesso!');
     }
 
 
     /**
-     * Função para zipar todos os zips com imagens e excluir todos os arquivos .zip e imagens do sistema.
+     * Função para zipar todos os zips com imagens, excluir todos os arquivos .zip e imagens do sistema e fazer o download.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -102,6 +103,9 @@ class DownloadController extends Controller
             unlink($arq_images);
         }
 
+        // Exclui as imagens do banco
+        DB::table('imagem')->delete();
+
         // Exclui as imagens da pasta public
         $pasta_public = '/xampp/htdocs/guilherme/1_image_system/public/';
         $arquivos_images = glob("$pasta_public{*.jpg,*.JPG,*.png,*.PNG,*.jpeg,*.JPEG}", GLOB_BRACE);
@@ -110,116 +114,15 @@ class DownloadController extends Controller
             unlink($arq_images);
         }
 
+        // Faz o download da pasta zipada
         header('Content-Type: application/zip');
         header('Content-Disposition: attachment; filename="compactados.zip"');
         readfile('compactados.zip');
 
         unlink('/xampp/htdocs/guilherme/1_image_system/public/compactados.zip');
-
-        return redirect('destroy');
-
-    }
-
-    public function destroy()
-    {
-        $imagem = Imagem::all();
-        $imagem->delete();
-
-        // Redireciona o usuário para a página inicial
-        return redirect('/imagem')->with('success', 'Imagem excluída com sucesso!');
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    /**
-     * Função para fazer o download das pastas de imagens compactadas.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function download()
-    {
-        $imagem = Imagem::all();
-
-        // Criando um contador para fazer o loop
-        $i = 0;
-        if(isset($arquivos))
-            foreach($arquivos as $zip){
-                header('Content-Type: application/zip');
-                header('Content-Disposition: attachment; filename='. $zip .'');
-                readfile($zip);
-            }
-        return redirect('/imagem')->with('success', 'Imagens compactadas e baixadas com sucesso');
-    }
-
-        // $pasta = '/xampp/htdocs/guilherme/1_image_system/public/compactados/';
-        // $arquivos = glob("$pasta{*.zip}", GLOB_BRACE);
-        // foreach($arquivos as $arq)
-        // {
-        //     header('Content-Type: application/zip');
-        //     header('Content-Disposition: attachment; filename='. $arq .'');
-        //     readfile($arq);
-        //     return redirect('downloadExcluir');
-        // }
-
-        // unlink('/xampp/htdocs/guilherme/1_image_system/public/compactados/' . $zip);
-        // unlink('/xampp/htdocs/guilherme/1_image_system/public/images/' . $name);
-        // $imag->delete();
-        // for($i = 0; $i <= 3; $i++)
-        // {                        
-        //     unlink('/xampp/htdocs/guilherme/1_image_system/public/images/' . $altura[$i] . '_' . $largura[$i] . '_' . $name);    
-        // }
-        // unlink('/xampp/htdocs/guilherme/1_image_system/public/compactados/' . $zip);
-
-
-
-
-
-
-        // $imagem = Imagem::all();
-
         
-        // // Criando um contador para fazer o loop
-        // $pasta = '/xampp/htdocs/guilherme/1_image_system/public/images/';
-        // $arquivos = glob("$pasta{*.jpg,*.JPG,*.png,*.jpeg}", GLOB_BRACE);
-        // $i = 0;
-        // $images = array();
-        // foreach($arquivos as $img){
-        //     $images[] = '<img src=\"xampp/htdocs/guilherme/1_image_system/public/images/".$img."\">';
-        //     $i++;
-        // }
-        // // Fazendo o loop de compactação em todas as imagens
+        // Redireciona o usuário de volta à página inicial
+        header("Location: /xampp/htdocs/guilherme/1_image_system/view/imagem/create.blade.php");
 
-        // foreach($imagem as $imag)
-        // {
-        //     for($a = 0; $a <= $i; $a++)
-        //     {
-
-        //         $name[$a]=$imag->filename;
-        //         $imagem_zip = new ZipArchive;
-        //         $imagem_zip->open('/xampp/htdocs/guilherme/1_image_system/public/compactados/' . $imag->template . '_' . $name[$a] . '.zip', ZipArchive::CREATE);
-        //         $imagem_zip->addFile('/xampp/htdocs/guilherme/1_image_system/public/images/' . $name[$a], $imag->template . '_' . $name[$a]);
-        //         $imagem_zip->close();
-
-        //     }
-        //     $imag->delete();
-        //     $caminho = public_path().'/images/';
-        //     unlink($caminho . $imag->filename);
-        //     $caminho2 = public_path().'/';
-        //     unlink($caminho2 . $imag->filename);
-        // }
-
+    }
 }

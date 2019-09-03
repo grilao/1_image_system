@@ -10,6 +10,7 @@ use Imagick;
 use ZipArchive;
 use App\Template;
 use App\Http\Requests\Imagem\StoreFormRequest;
+use DB;
 
 class ImagemController extends Controller
 {
@@ -47,14 +48,11 @@ class ImagemController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreFormRequest $request)
+    public function store(Request $request)
     {
-
-      $template = Template::all();
 
       if($request->hasfile('filename'))
       {
-
         foreach($request->file('filename') as $imagem)
         {
           $name=$imagem->getClientOriginalName();
@@ -63,13 +61,14 @@ class ImagemController extends Controller
           for ($i = 0; $i <= $count_name; $i++)
           {
             $data[$i] = $name;
+            $template_nome = DB::select('SELECT nome FROM templates ORDER BY nome ASC LIMIT 1;');
 
             $upload= new Imagem();
             $upload->filename=$data[$i];
             $upload->brilho='0';
             $upload->contraste='0';
             $upload->saturacao='0';
-            $upload->template='Nenhum template selecionado';
+            $upload->template=$template_nome;
             $upload->save();
           }  
         }

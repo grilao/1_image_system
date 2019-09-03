@@ -11,6 +11,7 @@ class Imagem extends Model
         'filename',
         'brilho',
         'contraste',
-        'saturacao'
+        'saturacao',
+        'template'
     ];
 }
