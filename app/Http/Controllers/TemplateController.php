@@ -11,6 +11,17 @@ class TemplateController extends Controller
 
 
     /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth')->except(['index']);
+    }
+
+
+    /**
      * Função para listar os templates.
      *
      * @return \Illuminate\Http\Response
