@@ -62,7 +62,7 @@
                 </div>
             </div>
         </div>
-        <div class="edicao-div-temp">
+        <div style="position: absolute; left: 40%; width: 300px; top: 82px;" class="edicao-div-temp">
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
                     <label class="input-group-text" for="template">Templates</label>
@@ -74,10 +74,10 @@
                 </select>
             </div>
         </div>
-        <button class="btn btn-primary" style="position: relative; left: 50%; margin-left: -32.91px; margin-bottom: 20px; top:  50px;" type="submit" style="margin-top:10px">Salvar</button>
+        <button class="btn btn-primary" style="position: absolute; left: 84%; margin-bottom: 20px; top:  82px;" type="submit" style="margin-top:10px">Salvar</button>
 
     </form>
-    <a href="{{ route('imagem.index') }}"><button style="position: relative; left: 50%; margin-left: -32.45px; top: 50px; margin-bottom: 50px;" class="btn btn-primary" type="submit" >Voltar</button></a>
+    <a href="{{ route('imagem.index') }}"><button style="top: 50px; margin-bottom: 50px;" class="btn btn-primary" type="submit" >Voltar</button></a>
 
     <script>
 
@@ -95,7 +95,7 @@
                 $('#valor_contraste').html(contraste-100);
                 $('#valor_saturacao').html(saturacao-100);
 
-                var filtros = 'brightness('+ brilho +'%) contrast('+ contraste +'%)';
+                var filtros = 'brightness('+ brilho +'%) contrast('+ contraste +'%) saturate('+ saturacao +'%)';
             
                 $('#img').css('filter', filtros);
 
