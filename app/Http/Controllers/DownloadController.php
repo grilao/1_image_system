@@ -46,12 +46,12 @@ class DownloadController extends Controller
 
                     // Criando um arquivo .zip
                     $imagem_zip = new ZipArchive;
-                    $imagem_zip->open('/xampp/htdocs/guilherme/1_image_system/public/compactados/' . $imag->template . '_' . $name . '.zip', ZipArchive::CREATE);
+                    $imagem_zip->open(public_path() . '/compactados/' . $imag->template . '_' . $name . '.zip', ZipArchive::CREATE);
 
                     // Fazendo um for que aplica o template na imagem e salva ela dentro do .zip
                     for($i = 0; $i < $count_largura; $i++)
                     {
-                        $upload_image = '/xampp/htdocs/guilherme/1_image_system/public/images/'.$name;
+                        $upload_image = public_path() . '/images/' . $name;
                         $image = new Imagick($upload_image);
                         $image->adaptiveResizeImage($altura[$i], $largura[$i]);
                         $image_download = file_put_contents ($altura[$i] . '_' . $largura[$i] . '_' . $name, $image);
@@ -80,9 +80,9 @@ class DownloadController extends Controller
     {
 
         // Criando as variáveis para formar o caminho definitivo dos arquivos
-        $arquivo_nome  = 'imagens_compactadas.zip';
-        $caminho      = public_path() . '/compactados/';
-        $caminho_inteiro  = $caminho.'/'.$arquivo_nome;
+        $arquivo_nome = 'imagens_compactadas.zip';
+        $caminho = public_path() . '/compactados/';
+        $caminho_inteiro = $caminho.'/'.$arquivo_nome;
 
         // Pega o nome dos arquivos;
         $arquivos = scandir($caminho);
@@ -117,7 +117,7 @@ class DownloadController extends Controller
         }
 
         // Exclui todos os arquivos .zip
-        $pasta_zips = '/xampp/htdocs/guilherme/1_image_system/public/compactados/';
+        $pasta_zips = public_path() . '/compactados/';
         $arquivos_zip = glob("$pasta_zips{*.zip, *.ZIP}", GLOB_BRACE);
         foreach($arquivos_zip as $arq_zip)
         {
@@ -125,7 +125,7 @@ class DownloadController extends Controller
         }
             
         // Exclui as imagens da pasta images
-        $pasta_images = '/xampp/htdocs/guilherme/1_image_system/public/images/';
+        $pasta_images =public_path() . '/images/';
         $arquivos_images = glob("$pasta_images{*.jpg,*.JPG,*.png,*.PNG,*.jpeg,*.JPEG}", GLOB_BRACE);
         foreach($arquivos_images as $arq_images)
         {
@@ -136,7 +136,7 @@ class DownloadController extends Controller
         DB::table('imagem')->delete();
 
         // Exclui as imagens da pasta public
-        $pasta_public = '/xampp/htdocs/guilherme/1_image_system/public/';
+        $pasta_public = public_path() . '/';
         $arquivos_images = glob("$pasta_public{*.jpg,*.JPG,*.png,*.PNG,*.jpeg,*.JPEG}", GLOB_BRACE);
         foreach($arquivos_images as $arq_images)
         {

@@ -164,7 +164,7 @@ body{
     margin-bottom: 2%;
     position: relative;
     float: left;
-    background-color: rgb(230, 228, 228);
+    background-color: rgb(238, 238, 238);
     border: solid 1px rgb(209, 209, 209);
     border-radius: 5px;
 }
@@ -199,19 +199,19 @@ body{
 }
 
 .index-div-temp{
-    width: 100px;
+    width: 300px;
     height: 25px;
     position: relative;
 	line-height: 25px;
     text-align: center;
-    left: 20%;
-    top: -25px;
+    top: -50px;
+    left: 15px;
 }
 
 .index-span{
-    border: solid 1px rgb(209, 209, 209);
-    padding: 10px;
-    width: 100px;
+    float: left;
+    padding: 0px 10px 0px 10px;
+    width: 300px;
     border-radius: 5px;
     overflow: hidden;
     text-overflow: ellipsis;

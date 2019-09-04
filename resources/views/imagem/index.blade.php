@@ -40,7 +40,12 @@
                 <img id="img" src="{{ asset('images/'. $imagem_certa .'') }}" name="img" class="index-div-img" title="{{$imagem_certa}}"/>
             </div>
             <div class="index-div-temp">
-                <span class="index-span"><strong>Template: </strong>{{$imagem->template}}</span>
+                <span title="{{$imagem->template}}" style="padding-top: 10px;" class="index-span"><strong>Template: </strong>{{$imagem->template}}</span><br><br>
+                @foreach ( $template as $template )
+                    @if ( $imagem->template == $template->nome )
+                        <span title="{{$template->descricao}}" class="index-span"><strong>Descrição: </strong>{{$template->descricao}}</span>
+                    @endif
+                @endforeach
             </div>
         </div>
     
