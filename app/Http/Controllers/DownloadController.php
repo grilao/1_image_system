@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Response;
 use App\Imagem;
 use App\Template;
 use ZipArchive;
@@ -65,7 +66,7 @@ class DownloadController extends Controller
         }
 
         // Redirecionando o usuário para a função que faz o download e exclui os arquivos
-        return redirect('downloadExcluir')->with('success', 'Imagem excluída com sucesso!');
+        return redirect('downloadExcluir');
     }
 
 
@@ -78,23 +79,51 @@ class DownloadController extends Controller
     public function downloadExcluir()
     {
 
-        // Cria o zip de todos os arquivos compactados, faz o download e exclui o zip
-        $pasta_zip = new ZipArchive;
-        $pasta_zips = '/xampp/htdocs/guilherme/1_image_system/public/compactados/';
-        $pasta_zip->open('compactados.zip', ZipArchive::CREATE);
-        $arquivos_zip = glob("$pasta_zips{*.zip}", GLOB_BRACE);
-        foreach($arquivos_zip as $arq_zip)
-        {
-            $pasta_zip->addFile($arq_zip);
+        // Criando as variáveis para formar o caminho definitivo dos arquivos
+        $arquivo_nome  = 'imagens_compactadas.zip';
+        $caminho      = public_path() . '/compactados/';
+        $caminho_inteiro  = $caminho.'/'.$arquivo_nome;
+
+        // Pega o nome dos arquivos;
+        $arquivos = scandir($caminho);
+
+        // Removendo os "." e ".." que estão no começo do array
+        array_shift($arquivos);
+        array_shift($arquivos);
+
+        // Iniciando a compactação
+        $zip = new \ZipArchive();
+
+        // criando um ir para ver se ocorreu algum erro e criando o arquivo zip
+        if( $zip->open($caminho_inteiro, \ZipArchive::CREATE) ){
+
+            // adiciona todos os arquivos que estão na pasta
+            foreach($arquivos as $arq){
+                $zip->addFile($caminho.'/'.$arq, $arq);
+            }
+            // fecha o zip
+            $zip->close();
         }
-        $pasta_zip->close();
-        
+            
+        // Primeiro nos certificamos de que o arquivo zip foi criado.
+        if(file_exists($caminho_inteiro)){
+            // Forçamos o donwload do arquivo.
+            header('Content-Type: application/zip');
+            header('Content-Disposition: attachment; filename="'.$arquivo_nome.'"');
+            readfile($caminho_inteiro);
+            
+            //removemos o arquivo zip após download
+            unlink($caminho_inteiro);
+        }
+
         // Exclui todos os arquivos .zip
+        $pasta_zips = '/xampp/htdocs/guilherme/1_image_system/public/compactados/';
+        $arquivos_zip = glob("$pasta_zips{*.zip, *.ZIP}", GLOB_BRACE);
         foreach($arquivos_zip as $arq_zip)
         {
             unlink($arq_zip);
         }
-        
+            
         // Exclui as imagens da pasta images
         $pasta_images = '/xampp/htdocs/guilherme/1_image_system/public/images/';
         $arquivos_images = glob("$pasta_images{*.jpg,*.JPG,*.png,*.PNG,*.jpeg,*.JPEG}", GLOB_BRACE);
@@ -113,16 +142,5 @@ class DownloadController extends Controller
         {
             unlink($arq_images);
         }
-
-        // Faz o download da pasta zipada
-        header('Content-Type: application/zip');
-        header('Content-Disposition: attachment; filename="compactados.zip"');
-        readfile('compactados.zip');
-
-        unlink('/xampp/htdocs/guilherme/1_image_system/public/compactados.zip');
-        
-        // Redireciona o usuário de volta à página inicial
-        header("Location: /xampp/htdocs/guilherme/1_image_system/view/imagem/create.blade.php");
-
     }
 }

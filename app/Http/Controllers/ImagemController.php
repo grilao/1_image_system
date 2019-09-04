@@ -48,7 +48,7 @@ class ImagemController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreFormRequest $request)
     {
 
       if($request->hasfile('filename'))
@@ -61,14 +61,14 @@ class ImagemController extends Controller
           for ($i = 0; $i <= $count_name; $i++)
           {
             $data[$i] = $name;
-            $template_nome = DB::select('SELECT nome FROM templates ORDER BY nome ASC LIMIT 1;');
+            // $template_nome = DB::select('SELECT nome FROM templates ORDER BY nome ASC LIMIT 1;');
 
             $upload= new Imagem();
             $upload->filename=$data[$i];
             $upload->brilho='0';
             $upload->contraste='0';
             $upload->saturacao='0';
-            $upload->template=$template_nome;
+            $upload->template='Nenhum template selecionado';
             $upload->save();
           }  
         }

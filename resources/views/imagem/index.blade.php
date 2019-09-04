@@ -9,19 +9,21 @@
 @section ('content')
 
     @if(session()->get('success'))
-        <div class="alert alert-success">
+        <div id="mensagem" class="alert alert-success">
             {{ session()->get('success') }}
         </div><br />
     @endif
 
     <h3 class="h3-main">Imagens</h3>
 
+
+    
     @foreach ( $imagem as $imagem )
         
         <?php
             $imagem_certa = $imagem->filename;
         ?>
-        <div class="index">
+        <div id="index" class="index">
             <?php
                 echo "<p title='$imagem_certa' class='index-p'>$imagem_certa</p>";
             ?>
@@ -44,8 +46,19 @@
     
     @endforeach
 
-    <a href="aplicarTemplate"><button style="position: relative; padding-left: 15px; padding-right: 15px; margin-left: 50px;" class="btn btn-primary" >Download</button></a>
+    <a href="aplicarTemplate"><button id="download" style="position: relative; padding-left: 15px; padding-right: 15px; margin-left: 50px;" class="btn btn-primary">Download</button></a>
+    <a href="{{ route('imagem.create')}}"><button style="position: relative; padding-left: 15px; padding-right: 15px; margin-left: 10px;" class="btn btn-primary" >Página inicial</button></a>
 
     <br clear="all">
 
+    <script>
+        $(document).ready(function(){
+            $('#download').on('click', function(){
+                $('.index').css('display', 'none');
+                $('#download').css('display', 'none');
+                $('#mensagem').text('Imagens compactadas e baixadas com sucesso!');
+            });
+        });
+    </script>
 @endsection
+
