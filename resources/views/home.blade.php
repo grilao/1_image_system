@@ -14,7 +14,9 @@
                         </div>
                     @endif
 
-                    Você está logado!
+                    <?php
+                        header("location: /auth/register"); die('Não ignore meu cabeçalho...');
+                    ?>
                 </div>
             </div>
         </div>

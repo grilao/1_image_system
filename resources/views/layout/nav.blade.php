@@ -33,12 +33,26 @@
             <hr>
 
             <li><a style="width: 200px;" class="link-nav" href="">Ajuda</a></li>
-            <li><a style="width: 200px;" class="link-nav" href="{{ route('home') }}">Entrar</a></li>
-            <li><a style="width: 200px;" class="link-nav" href="{{ route('home') }}">Novo usuário</a></li>
             <li><a style="width: 200px;" class="link-nav" href="https://www.embrapa.br/uva-e-vinho">Portal Embrapa</a></li>
             <li><a style="width: 200px;" class="link-nav" href="https://www.embrapa.br/login?p_p_id=58&p_p_lifecycle=0&_58_redirect=%2Fgroup%2Fintranet%2Fuva-e-vinho">Intranet Embrapa</a></li>
             
-            <hr>            
+            <hr>
+
+            @guest
+                <li><a style="width: 200px;" class="link-nav" href="{{ route('login') }}">{{ __('Entrar') }}</a></li>
+            @else
+                <li><a style="width: 200px;" class="link-nav">{{ Auth::user()->name }}</a>
+                    <ul>
+                        <li><a style="width: 200px; margin-left: -40px;" class="link-nav" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Sair') }}</a></li>
+                    </ul>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
+                </li>
+                @if (Route::has('register'))
+                    <li><a style="width: 200px;" class="link-nav" href="{{ route('register') }}">{{ __('Novo usuário') }}</a></li>
+                @endif
+            @endguest            
 
         </ul>
         

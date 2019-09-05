@@ -48,7 +48,7 @@ class ImagemController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreFormRequest $request)
     {
 
       if($request->hasfile('filename'))
@@ -61,14 +61,14 @@ class ImagemController extends Controller
           for ($i = 0; $i <= $count_name; $i++)
           {
             $data[$i] = $name;
-            $template_nome = DB::select('SELECT nome FROM templates ORDER BY nome ASC LIMIT 1;');
+            // $template_nome = DB::select('SELECT nome FROM templates ORDER BY nome ASC LIMIT 1;');
 
             $upload= new Imagem();
             $upload->filename=$data[$i];
             $upload->brilho='0';
             $upload->contraste='0';
             $upload->saturacao='0';
-            $upload->template=$template_nome;
+            $upload->template='Nenhum template selecionado';
             $upload->save();
           }  
         }
@@ -126,7 +126,7 @@ class ImagemController extends Controller
       // Trabalhando com a edição da imagem pelo imagick
 
       $name=$imagem->filename;
-      $upload_image = '/xampp/htdocs/guilherme/1_image_system/public/images/'.$name;
+      $upload_image = public_path() . '/images/' .$name;
       $image = new Imagick($upload_image);
 
       $image->brightnessContrastImage($imagem->brilho-100, $imagem->contraste-100);
@@ -135,7 +135,7 @@ class ImagemController extends Controller
 
       $origem = $name;
 
-      $destino = '/xampp/htdocs/guilherme/1_image_system/public/images/'.$name;
+      $destino = public_path() . '/images/' .$name;
       
       if (copy($origem, $destino)){
         unlink($name);
