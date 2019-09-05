@@ -50,7 +50,6 @@ class ImagemController extends Controller
      */
     public function store(StoreFormRequest $request)
     {
-
       if($request->hasfile('filename'))
       {
         foreach($request->file('filename') as $imagem)
@@ -61,14 +60,16 @@ class ImagemController extends Controller
           for ($i = 0; $i <= $count_name; $i++)
           {
             $data[$i] = $name;
-            // $template_nome = DB::select('SELECT nome FROM templates ORDER BY nome ASC LIMIT 1;');
-
+            
+            $template = DB::select('select * from templates');
             $upload= new Imagem();
             $upload->filename=$data[$i];
             $upload->brilho='0';
             $upload->contraste='0';
             $upload->saturacao='0';
-            $upload->template='Nenhum template selecionado';
+            for ($i = 0; $i < 1; $i++){
+              $upload->template=$template[$i]->nome;
+            }
             $upload->save();
           }  
         }

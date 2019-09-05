@@ -52,7 +52,7 @@
                 @if (Route::has('register'))
                     <li><a style="width: 200px;" class="link-nav" href="{{ route('register') }}">{{ __('Novo usuário') }}</a></li>
                 @endif
-            @endguest            
+            @endguest    
 
         </ul>
         

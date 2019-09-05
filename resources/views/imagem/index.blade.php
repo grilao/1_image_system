@@ -28,7 +28,7 @@
                 echo "<p title='$imagem_certa' class='index-p'>$imagem_certa</p>";
             ?>
             <div class="center">
-                <a href="{{ route('imagem.edit', $imagem->id)}}"><button style="padding-left: 15px; padding-right: 15px; float: left; margin-left: -137px;" class="btn btn-primary" type="submit">Editar</button></a>
+                <a style="z-index: 99;" href="{{ route('imagem.edit', $imagem->id)}}"><button style="z-index: 99; padding-left: 15px; padding-right: 15px; float: left; margin-left: -137px;" class="btn btn-primary" type="submit">Editar</button></a>
                 <form style="margin-left: -60px;" action="{{ route('imagem.destroy', $imagem->id)}}" method="post">
                 @csrf
                 @method('DELETE')
@@ -40,10 +40,11 @@
                 <img id="img" src="{{ asset('images/'. $imagem_certa .'') }}" name="img" class="index-div-img" title="{{$imagem_certa}}"/>
             </div>
             <div class="index-div-temp">
-                <span title="{{$imagem->template}}" style="padding-top: 10px;" class="index-span"><strong>Template: </strong>{{$imagem->template}}</span><br><br>
-                @foreach ( $template as $template )
-                    @if ( $imagem->template == $template->nome )
-                        <span title="{{$template->descricao}}" class="index-span"><strong>Descrição: </strong>{{$template->descricao}}</span>
+                <span title="{{$imagem->template}}" style="padding-top: 10px; position:relative; top: -50px;" class="index-span"><strong>Template: </strong>{{$imagem->template}}</span><br><br>
+                
+                @foreach ( $template as $temp )
+                    @if ( $imagem->template == $temp->nome )
+                        <span style="position:relative; top: -50px;" title="{{$temp->descricao}}" class="index-span"><strong>Descrição: </strong>{{$temp->descricao}}</span>
                     @endif
                 @endforeach
             </div>
@@ -66,4 +67,3 @@
         });
     </script>
 @endsection
-
