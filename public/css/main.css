@@ -151,6 +151,22 @@ body{
 	margin-bottom: 30px;
 }
 
+.container-ajuda{
+    width: 80%;
+    min-height: 130%;
+	position: relative;
+	margin-left: auto;
+	top: 5%;
+	left: 100px;
+	border-radius: 8px;
+	margin-right: auto;
+    background-color: rgb(255, 255, 255);
+    border: solid 1px rgb(235, 235, 235);
+    padding: 15px;
+    padding-left: 50px;
+	margin-bottom: 30px;
+}
+
 .h3-main{
     margin-bottom: 30px;
 }
@@ -210,7 +226,8 @@ body{
 .index-span{
     float: left;
     padding: 0px 10px 0px 10px;
-    width: 300px;
+    width: 80%;
+    margin-left: 13%;
     border-radius: 5px;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -265,15 +282,10 @@ body{
     top: 53%;
     transform: translate(-50%, -50%);
     padding: 25px;
-    border: solid 1px rgb(239, 240, 239);
+    border: solid 1px rgb(230, 230, 230);
     border-radius: 3px;
 }
 
-.edicao-div-img:hover{
-    background-color: rgb(235, 235, 235);
-    border: solid 1px rgb(192, 192, 192);
-    transition: background-color, border 0.5s;
-}
 
 /* Brilho, contraste e saturação */
 
@@ -282,17 +294,11 @@ body{
     position: relative;
     left: 5%;
     margin-top: 30px;
-    border: solid 1px rgb(239, 240, 239);
+    border: solid 1px rgb(230, 230, 230);
     margin-bottom: 30px;
     border-radius: 3px;
     float: left;
     padding: 20px;
-}
-
-.edicao-div-edicao:hover{
-    background-color: rgb(235, 235, 235);
-    border: solid 1px rgb(192, 192, 192);
-    transition: background-color, border 0.5s;
 }
 
 .edicao-div-edicao-label{
@@ -392,4 +398,27 @@ body{
     border-bottom: solid 1px rgb(255, 255, 255);
     word-wrap: break-word;
     max-width: 141px;
+}
+
+/* ------------------> Ajuda <------------------ */
+
+.util{
+    padding: 20px;
+    margin-bottom: 180px;
+}
+
+.templates{
+    float: left;
+    padding: 20px;
+    width: 46%;
+    position: relative;
+}
+
+.imagens{
+    float: left;
+    padding: 20px;
+    width: 46%;
+    margin-left: 4%;
+    margin-bottom: 50px;
+    position: relative;
 }

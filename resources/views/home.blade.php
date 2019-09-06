@@ -1,6 +1,6 @@
-@extends('layout.layout')
+@extends ('layout.layout')
 
-@section('content')
+@section ('content')
 <div class="container">
     <div class="col-md-8">
         @if (session('status'))

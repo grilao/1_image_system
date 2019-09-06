@@ -24,6 +24,7 @@ Route::resource('imagem', 'ImagemController');
 Route::get('aplicarTemplate', 'DownloadController@aplicarTemplate');
 Route::get('downloadExcluir', 'DownloadController@downloadExcluir');
 
+
 // TEMPLATE
 Route::get('template', function() {
     return view('template.create');
@@ -33,13 +34,8 @@ Route::resource('template', 'TemplateController');
 
 
 // AJUDA
-// Route::get('ajuda', function () {
-//     return view('help.ajuda');
-// });
+Route::get('/ajuda', 'AjudaController@index')->name('ajuda');
 
-// Route::get('mapa', function () {
-//     return view('help.mapa');
-// });
 
 // LOGIN
 Auth::routes();
