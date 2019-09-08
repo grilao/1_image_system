@@ -72,5 +72,6 @@
             <span><strong>2. </strong>Para excluir: escolha a imagem desejada e clique em "Excluir"</span><br>
             <span><strong>2. </strong>Para baixar: clique em "Download" e todas as imagens salvas serão baixadas</span><br>
         </div>
+        <br clear="all">
     </div>
 @endsection

@@ -43,13 +43,16 @@
                     
                     @foreach ( $template as $temp )
                         @if ( $imagem->template == $temp->nome )
-                            <span style="position:relative; top: -50px;" title="{{$temp->descricao}}" class="index-span"><strong>Descrição: </strong>{{$temp->descricao}}</span>
+                            <span style="position:relative; top: -50px;" title="{{$temp->descricao}}" class="index-span"><strong>&nbspDescrição: </strong>{{$temp->descricao}}</span>
                         @endif
                     @endforeach
                 </div>
             </div>
         
         @endforeach
+        <br clear="all">
+
+        <hr style="margin-left: -3%;" class="h3-main">
 
         <a href="aplicarTemplate"><button id="download" style="position: relative; padding-left: 15px; padding-right: 15px; margin-left: 50px;" class="btn btn-primary">Download</button></a>
         <a href="{{ route('imagem.create')}}"><button style="position: relative; padding-left: 15px; padding-right: 15px; margin-left: 10px;" class="btn btn-primary" >Página inicial</button></a>

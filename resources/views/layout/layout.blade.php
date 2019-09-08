@@ -26,6 +26,8 @@ rel="stylesheet" type="text/css">
 
         @yield('content')
 
+        <div class="fundo"></div>
+
     </body>
 
 </html>
