@@ -32,7 +32,7 @@
 
             <hr>
 
-            <li><a style="width: 200px;" class="link-nav" href="">Ajuda</a></li>
+            <li><a style="width: 200px;" class="link-nav" href="{{ route('ajuda') }}">Ajuda</a></li>
             <li><a style="width: 200px;" class="link-nav" href="https://www.embrapa.br/uva-e-vinho">Portal Embrapa</a></li>
             <li><a style="width: 200px;" class="link-nav" href="https://www.embrapa.br/login?p_p_id=58&p_p_lifecycle=0&_58_redirect=%2Fgroup%2Fintranet%2Fuva-e-vinho">Intranet Embrapa</a></li>
             
@@ -52,7 +52,7 @@
                 @if (Route::has('register'))
                     <li><a style="width: 200px;" class="link-nav" href="{{ route('register') }}">{{ __('Novo usuário') }}</a></li>
                 @endif
-            @endguest            
+            @endguest  
 
         </ul>
         

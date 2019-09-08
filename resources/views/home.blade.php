@@ -1,25 +1,18 @@
-@extends('layout.layout')
+@extends ('layout.layout')
 
-@section('content')
+@section ('content')
 <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Painel de controle</div>
-
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    <?php
-                        header("location: /auth/register"); die('Não ignore meu cabeçalho...');
-                    ?>
-                </div>
+    <div class="col-md-8">
+        @if (session('status'))
+            <div class="alert alert-success" role="alert">
+                {{ session('status') }}
             </div>
-        </div>
+        @endif
+        <a href="{{ route('imagem.create') }}">
+            <button class="btn btn-primary">
+                {{ __('Página inicial') }}
+            </button>
+        </a>
     </div>
 </div>
 @endsection
