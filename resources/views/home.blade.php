@@ -1,18 +1,26 @@
 @extends ('layout.layout')
 
+@section('title')
+
+    Ajuda
+
+@endsection
+
 @section ('content')
-<div class="container">
-    <div class="col-md-8">
-        @if (session('status'))
-            <div class="alert alert-success" role="alert">
-                {{ session('status') }}
-            </div>
-        @endif
-        <a href="{{ route('imagem.create') }}">
-            <button class="btn btn-primary">
-                {{ __('Página inicial') }}
-            </button>
-        </a>
+
+    <script>
+        Caman('#image', function () {
+            this.brightness(20);
+            this.contrast(10);
+            this.saturation(100);
+            this.render( function() {
+                this.save("'/xamppimages/Koala_editado.png') }}")
+            });
+        });
+    </script>
+
+    <div class="container-ajuda">
+        <img id="image" src="{{ asset('images/Koala.jpg') }}">
+        <br clear="all">
     </div>
-</div>
 @endsection

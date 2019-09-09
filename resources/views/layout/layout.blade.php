@@ -17,6 +17,10 @@
 rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
         <link rel="stylesheet" href="{{ asset('css/app.css') }}" crossorigin="anonymous">
+
+        <!-- Caman Js -->
+        <script src="http://ajax.cdnjs.com/ajax/libs/camanjs/2.0/caman.full.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/camanjs/4.1.2/caman.full.min.js"></script>
         
     </head>
 
