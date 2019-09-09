@@ -1,5 +1,11 @@
 @extends('layout.layout')
 
+@section('title')
+
+    Verificação
+
+@endsection
+
 @section('content')
     <div class="container-main">
         <div class="card">

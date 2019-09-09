@@ -1,5 +1,11 @@
 @extends('layout.layout')
 
+@section('title')
+
+    Redefinir senha
+
+@endsection
+
 @section('content')
     <div class="container-main">
         <div class="card-header">{{ __('Redefinir Senha') }}</div>

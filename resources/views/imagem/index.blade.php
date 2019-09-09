@@ -2,7 +2,7 @@
 
 @section('title')
 
-    Edição
+    Imagens
 
 @endsection
 

@@ -1,5 +1,11 @@
 @extends('layout.layout')
 
+@section('title')
+
+    Novo usuário
+
+@endsection
+
 @section('content')
     <div class="container-main">
         <div class="container">
