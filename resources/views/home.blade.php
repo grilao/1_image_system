@@ -10,9 +10,9 @@
 
     <script>
         Caman('#image', function () {
-            this.brightness(20);
-            this.contrast(10);
-            this.saturation(100);
+            this.brightness(80);
+            this.contrast(90);
+            this.saturation(90);
             this.render( function() {
                 this.save("'/xamppimages/Koala_editado.png') }}")
             });
