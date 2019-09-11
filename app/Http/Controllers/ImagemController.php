@@ -130,7 +130,7 @@ class ImagemController extends Controller
       $upload_image = public_path() . '/images/' .$name;
       $image = new Imagick($upload_image);
 
-      $image->brightnessContrastImage($imagem->brilho-100, $imagem->contraste-100);
+      $image->brightnessContrastImage($imagem->brilho, $imagem->contraste);
 
       $image_download = file_put_contents ($name, $image);
 

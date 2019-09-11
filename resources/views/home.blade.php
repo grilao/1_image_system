@@ -10,17 +10,17 @@
 
     <script>
         Caman('#image', function () {
-            this.brightness(20);
-            this.contrast(10);
-            this.saturation(100);
+            this.brightness(19);
+            this.contrast(20);
+            this.saturation(12);
             this.render( function() {
-                this.save("'/xamppimages/Koala_editado.png') }}")
+                this.save("'/xampp/images/Koala_editado.png') }}")
             });
         });
     </script>
 
     <div class="container-ajuda">
-        <img id="image" src="{{ asset('images/Koala.jpg') }}">
+        <img id="image" src="{{ asset('images/Chrysanthemum.jpg') }}">
         <br clear="all">
     </div>
 @endsection

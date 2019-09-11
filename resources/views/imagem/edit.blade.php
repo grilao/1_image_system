@@ -47,19 +47,19 @@
                     <div class="edicao-div-cor">
                         <label class="edicao-div-edicao-label" for="brilho">Brilho:</label>
                         <span class="edicao-div-edicao-span" id="valor_brilho"></span>
-                        <input type="range" class="custom-range" id="brilho" value="100" min="0" max="200" name="brilho">
+                        <input type="range" class="custom-range" id="brilho" value="0" min="-100" max="100" name="brilho">
                     </div>   
                     
                     <div class="edicao-div-cor">
                         <label class="edicao-div-edicao-label" for="contraste">Contraste:</label>
                         <span class="edicao-div-edicao-span" id="valor_contraste"></span>
-                        <input type="range" class="custom-range" id="contraste" value="100" min="0" max="200" name="contraste">
+                        <input type="range" class="custom-range" id="contraste" value="0" min="-100" max="100" name="contraste">
                     </div>
 
                     <div class="edicao-div-cor">
                         <label class="edicao-div-edicao-label" for="saturacao">Saturação:</label>
                         <span class="edicao-div-edicao-span" id="valor_saturacao"></span>
-                        <input type="range" class="custom-range" id="saturacao" value="100" min="0" max="200" name="saturacao">
+                        <input type="range" class="custom-range" id="saturacao" value="0" min="-100" max="100" name="saturacao">
                     </div>
                 </div>
             </div>
@@ -87,19 +87,31 @@
                 $('#valor_contraste').html('0');
                 $('#valor_saturacao').html('0');
 
-                $('input[type=range]').change(function(){
-
+                $('#brilho').change( function() {
                     var brilho = $('#brilho').val();
+                    $('#valor_brilho').html(brilho);
+                    Caman('#img', function() {
+                        this.brightness(brilho/1.3);
+                        this.render();
+                    });
+                });
+
+                $('#contraste').change( function() {
                     var contraste = $('#contraste').val();
+                    $('#valor_contraste').html(contraste);
+                    Caman('#img', function() {
+                        this.contrast(contraste/1.3);
+                        this.render();
+                    });
+                })
+
+                $('#saturacao').change( function() {
                     var saturacao = $('#saturacao').val();
-                    $('#valor_brilho').html(brilho-100);
-                    $('#valor_contraste').html(contraste-100);
-                    $('#valor_saturacao').html(saturacao-100);
-
-                    var filtros = 'brightness('+ brilho +'%) contrast('+ contraste +'%) saturate('+ saturacao +'%)';
-                
-                    $('#img').css('filter', filtros);
-
+                    $('#valor_saturacao').html(saturacao);
+                    Caman('#img', function() {
+                        this.saturation(saturacao/1.3);
+                        this.render();
+                    });
                 })
             });
 
