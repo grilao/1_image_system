@@ -88,28 +88,31 @@
                 $('#valor_saturacao').html('0');
 
                 $('#brilho').change( function() {
-                    var brilho = $('#brilho').val();
-                    $('#valor_brilho').html(brilho);
+                    var bril = $('#brilho').val();
+                    var brilho = $('#brilho').val()/1.5;
+                    $('#valor_brilho').html(bril);
                     Caman('#img', function() {
-                        this.brightness(brilho/1.3);
+                        this.brightness(brilho);
                         this.render();
                     });
                 });
 
                 $('#contraste').change( function() {
-                    var contraste = $('#contraste').val();
-                    $('#valor_contraste').html(contraste);
+                    var cont = $('#contraste').val();
+                    var contraste = $('#contraste').val()/1.3;
+                    $('#valor_contraste').html(cont);
                     Caman('#img', function() {
-                        this.contrast(contraste/1.3);
+                        this.contrast(contraste);
                         this.render();
                     });
                 })
 
                 $('#saturacao').change( function() {
-                    var saturacao = $('#saturacao').val();
-                    $('#valor_saturacao').html(saturacao);
+                    var satur = $('#saturacao').val();
+                    var saturacao = $('#saturacao').val()/2;
+                    $('#valor_saturacao').html(satur);
                     Caman('#img', function() {
-                        this.saturation(saturacao/1.3);
+                        this.saturation(saturacao);
                         this.render();
                     });
                 })

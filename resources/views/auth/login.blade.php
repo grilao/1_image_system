@@ -20,7 +20,7 @@
 
                 <div class="col-md-4" style="margin-top: 20px;">
                     <label for="email">{{ __('Enderenço de e-mail:') }}</label><br/>
-                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" placeholder="Insira seu endereço de e-mail" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
                     @error('email')
                         <span class="invalid-feedback" role="alert">
                             <strong>E-mail não cadastrado.</strong>
@@ -29,7 +29,7 @@
                 </div>
                 <div class="col-md-4" style="margin-top: 20px;">
                     <label for="descricao_template">{{ __('Senha:') }}</label><br/>
-                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" placeholder="Insira sua senha" name="password" required autocomplete="current-password">
                     @error('password')
                         <span class="invalid-feedback" role="alert">
                             <strong>Senha incorreta</strong>
