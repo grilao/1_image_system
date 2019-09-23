@@ -23,9 +23,9 @@ class ImagemController extends Controller
      */
     public function index()
     {
-        $imagem = Imagem::all();
-        $template = Template::all();
-        return view('imagem.index', compact('imagem', 'template'));
+      $imagem = Imagem::all();
+      $template = Template::all();
+      return view('imagem.index', compact('imagem', 'template'));
     }
 
 
@@ -37,7 +37,7 @@ class ImagemController extends Controller
      */
     public function create()
     {
-        return view('imagem.create');
+      return view('imagem.create');
     }
 
 
@@ -100,9 +100,9 @@ class ImagemController extends Controller
      */
     public function edit($id)
     {
-        $imagem = Imagem::find($id);
-        $template = Template::all();
-        return view('imagem.edit', compact('imagem', 'template'));
+      $imagem = Imagem::find($id);
+      $template = Template::all();
+      return view('imagem.edit', compact('imagem', 'template'));
     }
 
 

@@ -56,7 +56,7 @@
                         <input type="range" class="custom-range" id="contraste" value="0" min="-100" max="100" name="contraste">
                     </div>
 
-                    <div class="edicao-div-cor">
+                    <div style="display: none;" class="edicao-div-cor">
                         <label class="edicao-div-edicao-label" for="saturacao">Saturação:</label>
                         <span class="edicao-div-edicao-span" id="valor_saturacao"></span>
                         <input type="range" class="custom-range" id="saturacao" value="0" min="-100" max="100" name="saturacao">
@@ -89,7 +89,7 @@
 
                 $('#brilho').change( function() {
                     var bril = $('#brilho').val();
-                    var brilho = $('#brilho').val()/1.5;
+                    var brilho = $('#brilho').val()/2;
                     $('#valor_brilho').html(bril);
                     Caman('#img', function() {
                         this.brightness(brilho);
@@ -99,7 +99,7 @@
 
                 $('#contraste').change( function() {
                     var cont = $('#contraste').val();
-                    var contraste = $('#contraste').val()/1.3;
+                    var contraste = $('#contraste').val()/2;
                     $('#valor_contraste').html(cont);
                     Caman('#img', function() {
                         this.contrast(contraste);
