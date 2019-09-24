@@ -56,7 +56,7 @@
                         <input type="range" class="custom-range" id="contraste" value="0" min="-100" max="100" name="contraste">
                     </div>
 
-                    <div style="display: none;" class="edicao-div-cor">
+                    <div class="edicao-div-cor">
                         <label class="edicao-div-edicao-label" for="saturacao">Saturação:</label>
                         <span class="edicao-div-edicao-span" id="valor_saturacao"></span>
                         <input type="range" class="custom-range" id="saturacao" value="0" min="-100" max="100" name="saturacao">

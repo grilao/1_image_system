@@ -50,7 +50,7 @@
                     </form>
                 </li>
                 @if (Route::has('register'))
-                    <li><a style="width: 200px;" class="link-nav" href="{{ route('register') }}">{{ __('Novo usuário') }}</a></li>
+                    <li><a style="width: 200px;" class="link-nav" href="{{ route('register') }}">{{ __('Novo administrador') }}</a></li>
                 @endif
             @endguest  
 

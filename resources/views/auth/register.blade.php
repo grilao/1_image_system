@@ -11,7 +11,7 @@
         <div class="card-body">
             <form method="POST" action="{{ route('register') }}">
                 @csrf
-                <h3 class="h3-main">Cadastrar usuário</h3>
+                <h3 class="h3-main">Cadastrar administrador</h3>
                 <div class="col-md-4" style="margin-top: 20px;">
                     <label for="name">{{ __('Nome:') }}</label><br/>
                     <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" placeholder="Insira seu nome de usuário" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
