@@ -85,7 +85,7 @@
             $(document).ready(function(){
                 $('#valor_brilho').html('0');
                 $('#valor_contraste').html('0');
-                $('#valor_saturacao').html('0');
+                $('#valor_saturacao').html('Não está funcionando!');
 
                 $('#brilho').change( function() {
                     var bril = $('#brilho').val();
@@ -106,16 +106,16 @@
                         this.render();
                     });
                 })
-
-                $('#saturacao').change( function() {
-                    var satur = $('#saturacao').val();
-                    var saturacao = $('#saturacao').val()/2;
-                    $('#valor_saturacao').html(satur);
-                    Caman('#img', function() {
-                        this.saturation(saturacao);
-                        this.render();
-                    });
-                })
+                // Função de saturação
+                // $('#saturacao').change( function() {
+                //     var satur = $('#saturacao').val();
+                //     var saturacao = $('#saturacao').val()/2;
+                //     $('#valor_saturacao').html(satur);
+                //     Caman('#img', function() {
+                //         this.saturation(saturacao);
+                //         this.render();
+                //     });
+                // })
             });
 
         </script>
