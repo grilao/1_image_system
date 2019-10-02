@@ -53,7 +53,21 @@ class DownloadController extends Controller
                     {
                         $upload_image = public_path() . '/images/' . $name;
                         $image = new Imagick($upload_image);
-                        $image->adaptiveResizeImage($altura[$i], $largura[$i]);
+                        //$image->adaptiveResizeImage($altura[$i], $largura[$i]);
+                        $image->resizeImage($altura[$i], $largura[$i],imagick::FILTER_CATROM,0.9,true);
+                        //$maior_dimensao = max($altura[$i], $largura[$i]);
+                        //$menor_dimensao = min([$altura[$i], $largura[$i]]);
+                        //if ($altura[$i]>=$largura[$i]){
+                        //    $menor_dimensao = $largura[$i];
+                        //}else{
+                        //    $menor_dimensao=$altura[$i];
+                        //};
+                        /*if ($altura[$i]> $largura[$i]){
+                            
+                        }*/
+                        //$image->cropImage ( min($largura[$i],$menor_dimensao), min($altura[$i],$maior_dimensao) , 0, 0 );
+                        //$image->cropImage ( $menor_dimensao, 90, 0, 0 );
+                        //$image->cropImage ( 90, 90, 0, 0 );
                         $image_download = file_put_contents ($altura[$i] . '_' . $largura[$i] . '_' . $name, $image);
                         
                         $imagem_zip->addFile($altura[$i] . '_' . $largura[$i] . '_' . $name);

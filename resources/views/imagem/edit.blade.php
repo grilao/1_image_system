@@ -85,11 +85,11 @@
             $(document).ready(function(){
                 $('#valor_brilho').html('0');
                 $('#valor_contraste').html('0');
-                $('#valor_saturacao').html('Não está funcionando!');
+                $('#valor_saturacao').html('0');
 
                 $('#brilho').change( function() {
                     var bril = $('#brilho').val();
-                    var brilho = $('#brilho').val()/2;
+                    var brilho = $('#brilho').val()/2.3;
                     $('#valor_brilho').html(bril);
                     Caman('#img', function() {
                         this.brightness(brilho);
@@ -99,7 +99,7 @@
 
                 $('#contraste').change( function() {
                     var cont = $('#contraste').val();
-                    var contraste = $('#contraste').val()/2;
+                    var contraste = $('#contraste').val()/3;
                     $('#valor_contraste').html(cont);
                     Caman('#img', function() {
                         this.contrast(contraste);

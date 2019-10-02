@@ -34,7 +34,7 @@
                 <td class="line-td-table">{{$template->descricao}}</td>
                 <td class="line-td-table">{{$template->altura}}</td>
                 <td class="line-td-table">{{$template->largura}}</td>
-                <td style="border-bottom: solid rgb(192, 192, 192) 1px;"><a style="padding-left: 15px; padding-right: 15px; position: relative; left: 5px;" href="{{ route('template.edit', $template->id)}}"><button  class="btn btn-primary" style="padding-left: 15px; padding-right: 15px;" type="submit">Editar</button></a></td>
+                <td style="border-bottom: solid rgb(192, 192, 192) 1px;"><a style="padding-left: 15px; padding-right: 15px; position: relative; left: 20px;" href="{{ route('template.edit', $template->id)}}"><button  class="btn btn-primary" style="padding-left: 15px; padding-right: 15px;" type="submit">Editar</button></a></td>
                 <td style="border-bottom: solid rgb(192, 192, 192) 1px;">
                     <form style="padding-left: 15px; padding-right: 15px;" action="{{ route('template.destroy', $template->id)}}" method="post">
                     @csrf
