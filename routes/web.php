@@ -12,6 +12,14 @@
 */
 
 
+// TEMPLATE
+Route::get('template', function() {
+    return view('template.create');
+});
+
+Route::resource('template', 'TemplateController');
+
+
 // IMAGEM
 Route::get('/', function () {
     return view('imagem.create');
@@ -23,14 +31,6 @@ Route::resource('imagem', 'ImagemController');
 // DOWNLOAD
 Route::get('aplicarTemplate', 'DownloadController@aplicarTemplate');
 Route::get('downloadExcluir', 'DownloadController@downloadExcluir');
-
-
-// TEMPLATE
-Route::get('template', function() {
-    return view('template.create');
-});
-
-Route::resource('template', 'TemplateController');
 
 
 // AJUDA

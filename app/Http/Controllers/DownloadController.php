@@ -53,21 +53,51 @@ class DownloadController extends Controller
                     {
                         $upload_image = public_path() . '/images/' . $name;
                         $image = new Imagick($upload_image);
+
+
                         //$image->adaptiveResizeImage($altura[$i], $largura[$i]);
-                        $image->resizeImage($altura[$i], $largura[$i],imagick::FILTER_CATROM,0.9,true);
-                        //$maior_dimensao = max($altura[$i], $largura[$i]);
-                        //$menor_dimensao = min([$altura[$i], $largura[$i]]);
-                        //if ($altura[$i]>=$largura[$i]){
-                        //    $menor_dimensao = $largura[$i];
-                        //}else{
-                        //    $menor_dimensao=$altura[$i];
-                        //};
-                        /*if ($altura[$i]> $largura[$i]){
+                        $image->resizeImage($largura[$i], $altura[$i], imagick::FILTER_CATROM, 0.9, false);
+
+
+                        /////////////////////////////////////////////////
+
+                        // $maior_dimensao = max($altura[$i], $largura[$i]);
+                        // $menor_dimensao = min([$altura[$i], $largura[$i]]);
+                        // // if ($altura[$i]>=$largura[$i]){
+                        // //    $menor_dimensao = $largura[$i];
+                        // // }else{
+                        // //    $menor_dimensao=$altura[$i];
+                        // // };
+                        // // $inicio_crop = 
+
+                        // $image->cropImage ( min($largura[$i],$menor_dimensao), min($altura[$i],$maior_dimensao) , 0, 0 );
+                        // $image->cropImage ( $menor_dimensao, 90, 0, 0 );
+                        // $image->cropImage ( 90, 90, 0, 0 );
+
+                        ////////////////////////////////////////
+
+
+                        if($altura[$i] > $largura[$i]){
+                            //crop largura
+                            $inicio_crop_largura = $largura[$i]/4;
+
+                            //crop altura
+                            $inicio_crop_altura = $altura[$i]/8;
                             
-                        }*/
-                        //$image->cropImage ( min($largura[$i],$menor_dimensao), min($altura[$i],$maior_dimensao) , 0, 0 );
-                        //$image->cropImage ( $menor_dimensao, 90, 0, 0 );
-                        //$image->cropImage ( 90, 90, 0, 0 );
+                            //crop
+                            $image->cropImage($inicio_crop_largura+$inicio_crop_largura*2, $inicio_crop_altura+$inicio_crop_altura*4, $inicio_crop_largura, $inicio_crop_altura);
+                        } else {
+                            //crop largura
+                            $inicio_crop_largura = $largura[$i]/8;
+
+                            //crop altura
+                            $inicio_crop_altura = $altura[$i]/4;
+
+                            //crop
+                            $image->cropImage($inicio_crop_largura+$inicio_crop_largura*5, $inicio_crop_altura+$inicio_crop_altura*2, $inicio_crop_largura, $inicio_crop_altura/2);
+                        }
+
+
                         $image_download = file_put_contents ($altura[$i] . '_' . $largura[$i] . '_' . $name, $image);
                         
                         $imagem_zip->addFile($altura[$i] . '_' . $largura[$i] . '_' . $name);
@@ -109,7 +139,7 @@ class DownloadController extends Controller
         $zip = new \ZipArchive();
 
         // criando um ir para ver se ocorreu algum erro e criando o arquivo zip
-        if( $zip->open($caminho_inteiro, \ZipArchive::CREATE) ){
+        if($zip->open($caminho_inteiro, \ZipArchive::CREATE)){
 
             // adiciona todos os arquivos que estão na pasta
             foreach($arquivos as $arq){
@@ -118,14 +148,14 @@ class DownloadController extends Controller
             // fecha o zip
             $zip->close();
         }
-            
+
         // Primeiro nos certificamos de que o arquivo zip foi criado.
         if(file_exists($caminho_inteiro)){
             // Forçamos o donwload do arquivo.
             header('Content-Type: application/zip');
             header('Content-Disposition: attachment; filename="'.$arquivo_nome.'"');
             readfile($caminho_inteiro);
-            
+
             //removemos o arquivo zip após download
             unlink($caminho_inteiro);
         }
@@ -137,7 +167,7 @@ class DownloadController extends Controller
         {
             unlink($arq_zip);
         }
-            
+
         // Exclui as imagens da pasta images
         $pasta_images =public_path() . '/images/';
         $arquivos_images = glob("$pasta_images{*.jpg,*.JPG,*.png,*.PNG,*.jpeg,*.JPEG}", GLOB_BRACE);
