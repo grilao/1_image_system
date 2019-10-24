@@ -85,7 +85,7 @@ class DownloadController extends Controller
                             $inicio_crop_altura = $altura[$i]/8;
                             
                             //crop
-                            $image->cropImage($inicio_crop_largura+$inicio_crop_largura*2, $inicio_crop_altura+$inicio_crop_altura*4, $inicio_crop_largura, $inicio_crop_altura);
+                            $image->cropImage($inicio_crop_largura+$inicio_crop_largura*2, $inicio_crop_altura+$inicio_crop_altura*5, $inicio_crop_largura/2, $inicio_crop_altura);
                         } else {
                             //crop largura
                             $inicio_crop_largura = $largura[$i]/8;
