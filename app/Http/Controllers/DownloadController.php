@@ -83,10 +83,10 @@ class DownloadController extends Controller
 
                             //crop altura
                             $inicio_crop_altura = $altura[$i]/8;
-                            
+
                             //crop
                             $image->cropImage($inicio_crop_largura+$inicio_crop_largura*2, $inicio_crop_altura+$inicio_crop_altura*5, $inicio_crop_largura/2, $inicio_crop_altura);
-                        } else {
+                        } else if($altura[$i] < $largura[$i]){
                             //crop largura
                             $inicio_crop_largura = $largura[$i]/8;
 
@@ -95,11 +95,20 @@ class DownloadController extends Controller
 
                             //crop
                             $image->cropImage($inicio_crop_largura+$inicio_crop_largura*5, $inicio_crop_altura+$inicio_crop_altura*2, $inicio_crop_largura, $inicio_crop_altura/2);
+                        } else {
+                            //crop largura
+                            $inicio_crop_largura = $largura[$i]/6;
+
+                            //crop altura
+                            $inicio_crop_altura = $altura[$i]/6;
+
+                            //crop
+                            $image->cropImage($inicio_crop_largura+$inicio_crop_largura*2, $inicio_crop_altura+$inicio_crop_altura*2, $inicio_crop_largura/2, $inicio_crop_altura/2);
                         }
 
 
                         $image_download = file_put_contents ($altura[$i] . '_' . $largura[$i] . '_' . $name, $image);
-                        
+
                         $imagem_zip->addFile($altura[$i] . '_' . $largura[$i] . '_' . $name);
                     }
 
