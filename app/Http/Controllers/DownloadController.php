@@ -147,7 +147,7 @@ class DownloadController extends Controller
         // Iniciando a compactação
         $zip = new \ZipArchive();
 
-        // criando um ir para ver se ocorreu algum erro e criando o arquivo zip
+        // criando um if para ver se ocorreu algum erro e criando o arquivo zip
         if($zip->open($caminho_inteiro, \ZipArchive::CREATE)){
 
             // adiciona todos os arquivos que estão na pasta
@@ -158,7 +158,7 @@ class DownloadController extends Controller
             $zip->close();
         }
 
-        // Primeiro nos certificamos de que o arquivo zip foi criado.
+        // Verificando se o zip foi criado
         if(file_exists($caminho_inteiro)){
             // Forçamos o donwload do arquivo.
             header('Content-Type: application/zip');
@@ -178,7 +178,7 @@ class DownloadController extends Controller
         }
 
         // Exclui as imagens da pasta images
-        $pasta_images =public_path() . '/images/';
+        $pasta_images = public_path() . '/images/';
         $arquivos_images = glob("$pasta_images{*.jpg,*.JPG,*.png,*.PNG,*.jpeg,*.JPEG}", GLOB_BRACE);
         foreach($arquivos_images as $arq_images)
         {
